@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,10 +51,10 @@
             name: "Visibility Gap",
             icon: MapPin,
             question: "Can they find you?",
-            symptom: `Searching your firm name from your own office and showing up at the top doesn't mean much. Someone ten minutes away searching "divorce attorney near me" may never see you. It's a shape and coverage problem, not a ranking problem.`,
+            symptom: `Searching from your office puts you on top of your own pin. Of course you show up. But local search is driven by proximity, and most firms only appear within a 5 to 8 mile radius of their address. Outside that circle, you don't exist. The question isn't whether you rank. It's how far that ranking actually reaches.`,
             reality: `Your visibility is likely just a small circle around your physical office. While you rank #1 from your desk, a highly qualified lead searching from their home ten minutes away sees your competitors instead.`,
             chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
-            diagnostic: "If someone searched your primary keyword from 20 different points across your market, how many of those would show your firm in the top 3?",
+            diagnostic: "If someone searched 'divorce attorney near me' from 20 different neighborhoods in your city, how many of those searches would show your firm in the top 3?",
             fixType: "Quick Fix (Firm Asset)",
             color: "bg-blue-100 text-blue-800 border-blue-300",
             activeColor: "bg-blue-600 text-white"
@@ -386,10 +385,16 @@
 
                 {/* --- The Framework Breakdown Tab --- */}
                 {activeTab === 'framework' && (
-                  <div className="space-y-12">
-                    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-                      <h2 className="text-2xl font-bold mb-8 text-center">The Framework Breakdown</h2>
-                      <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative">
+                  <div className="space-y-12 animate-in fade-in duration-500">
+                    
+                    {/* The Interactive Navigation */}
+                    <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
+                      <div className="text-center mb-10">
+                        <h2 className="text-2xl font-bold mb-3">The Diagnostic Framework</h2>
+                        <p className="text-slate-500 max-w-2xl mx-auto">Select a gap in the chain below to view the diagnosis, the blind spots, and the test.</p>
+                      </div>
+                      
+                      <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative max-w-5xl mx-auto">
                         <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 z-0"></div>
                         
                         {gapsData.map((gap, index) => {
@@ -409,7 +414,7 @@
                               </div>
                               {index < gapsData.length - 1 && (
                                 <div className="md:hidden my-4 text-slate-300">
-                                  <ArrowRight size={24} className="rotate-90" />
+                                  <ArrowDown size={24} />
                                 </div>
                               )}
                             </div>
@@ -418,59 +423,79 @@
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="md:col-span-2 space-y-6">
-                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                          <div className={`${activeGap.color} px-8 py-6 border-b`}>
-                            <div className="flex items-center gap-3 mb-2">
-                              <activeGap.icon size={24} />
-                              <h2 className="text-3xl font-bold">{activeGap.name}</h2>
-                            </div>
-                            <p className="text-lg font-medium opacity-90">"{activeGap.question}"</p>
+                    {/* The Streamlined Content Area */}
+                    <div className="max-w-4xl mx-auto">
+                      <div className="bg-white rounded-3xl shadow-md border border-slate-200 overflow-hidden">
+                        
+                        {/* Header Section */}
+                        <div className={`${activeGap.color.split(' ')[0]} ${activeGap.color.split(' ')[2]} px-8 md:px-12 py-8 border-b text-center relative overflow-hidden`}>
+                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
+                            <activeGap.icon size={200} />
                           </div>
-                          <div className="p-8 space-y-8">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                              <div>
-                                <h4 className="flex items-center gap-2 text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
-                                  <AlertCircle size={16} /> What The Attorney Doesn't Realize
-                                </h4>
-                                <div className="bg-slate-50 rounded-xl p-5 border border-slate-100 h-full">
-                                  <p className="text-slate-700 font-medium leading-relaxed">{activeGap.symptom}</p>
-                                </div>
-                              </div>
-                              <div>
-                                <h4 className="flex items-center gap-2 text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
-                                  <Activity size={16} /> What's Actually Happening
-                                </h4>
-                                <div className="bg-slate-50 rounded-xl p-5 border border-slate-100 h-full">
-                                  <p className="text-slate-700 leading-relaxed">{activeGap.reality}</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="pt-6 border-t border-slate-100">
-                              <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Why it matters in the ecosystem</h4>
-                              <p className="text-slate-800 text-lg leading-relaxed">{activeGap.chainImpact}</p>
-                            </div>
+                          <div className="relative z-10 flex flex-col items-center">
+                            <span className="inline-flex items-center gap-2 bg-white/60 text-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
+                              Diagnosis {activeGap.id}
+                            </span>
+                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">{activeGap.name}</h2>
+                            <p className="text-xl font-medium text-slate-700">"{activeGap.question}"</p>
                           </div>
                         </div>
-                      </div>
 
-                      <div className="space-y-6">
-                        <div className="bg-slate-900 rounded-2xl shadow-sm p-8 text-white">
-                          <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">The Diagnostic Question</h4>
-                          <p className="text-xl font-medium leading-snug mb-6">{activeGap.diagnostic}</p>
-                          <div className="inline-flex items-center gap-2 bg-slate-800 text-slate-300 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                            {activeGap.fixType}
+                        {/* The Contrast: Blind Spot vs Reality */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x border-b border-slate-200">
+                          {/* Blind Spot */}
+                          <div className="p-8 md:p-10 bg-slate-50/50">
+                            <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
+                              <AlertCircle size={18} className="text-slate-400" /> What The Attorney Doesn't Realize
+                            </h4>
+                            <p className="text-slate-700 leading-relaxed text-lg">{activeGap.symptom}</p>
+                          </div>
+                          
+                          {/* Reality */}
+                          <div className="p-8 md:p-10">
+                            <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
+                              <Activity size={18} className="text-blue-500" /> What's Actually Happening
+                            </h4>
+                            <p className="text-slate-800 leading-relaxed text-lg">{activeGap.reality}</p>
                           </div>
                         </div>
-                        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-                          <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">The Final Default</h4>
-                          <p className="text-sm text-slate-600 leading-relaxed">
-                            If none of the evaluative gaps close, the consumer defaults to proximity, price, or whoever answers the phone first. The attorney loses a case they should have won, and they never know why.
-                          </p>
+
+                        {/* The Impact */}
+                        <div className="p-8 md:p-10 bg-white border-b border-slate-200">
+                          <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3 text-center">Why it matters in the ecosystem</h4>
+                          <p className="text-slate-700 text-lg leading-relaxed text-center max-w-2xl mx-auto">{activeGap.chainImpact}</p>
+                        </div>
+
+                        {/* The Diagnostic Question (Footer of Card) */}
+                        <div className="bg-slate-900 p-8 md:p-10 text-center relative overflow-hidden">
+                          <div className="relative z-10">
+                            <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">The Diagnostic Test</h4>
+                            <p className="text-2xl font-medium text-white leading-snug max-w-3xl mx-auto mb-6">"{activeGap.diagnostic}"</p>
+                            <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wide">
+                              {activeGap.fixType}
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+
+                    {/* Global Anchor: The Final Default (Moved outside the card) */}
+                    <div className="max-w-4xl mx-auto mt-16 relative">
+                      <div className="flex justify-center mb-6">
+                        <div className="w-px h-12 bg-slate-300"></div>
+                      </div>
+                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-rose-400"></div>
+                        <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">The Final Default Consequence</h3>
+                        <div className="text-lg md:text-xl text-slate-700 leading-relaxed space-y-4 max-w-3xl mx-auto font-medium">
+                          <p>When nothing on your website differentiates you, when nothing builds trust, and when there's no way to get a feel for who you are before calling, the prospect has no reason to choose you over anyone else.</p>
+                          <p>So they default. Whoever is closest. Whoever is cheapest. Whoever answers the phone first.</p>
+                          <p className="text-slate-900 font-bold text-2xl mt-6">You lose a client you were the right fit for.<br/>And you never know they were looking.</p>
                         </div>
                       </div>
                     </div>
+
                   </div>
                 )}
 
