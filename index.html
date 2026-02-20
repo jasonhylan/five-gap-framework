@@ -51,8 +51,8 @@
             name: "Visibility Gap",
             icon: MapPin,
             question: "Can they find you?",
-            symptom: `"I'm not showing up"`,
-            reality: "When someone searches 'divorce attorney near me,' the firm doesn't appear, appears too low, or has patchwork visibility. It's often a shape and coverage problem, not just reach.",
+            symptom: `They search for their firm from their own office, see themselves at the top, and assume that's what the rest of the city sees.`,
+            reality: `Their visibility is a small circle around their office, not a presence across the market. Someone searching "divorce attorney near me" from ten minutes away may never see them. It's a shape and coverage problem, not a ranking problem.`,
             chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
             diagnostic: "If someone searched your primary keyword from 20 different points across your market, how many of those would show your firm in the top 3?",
             fixType: "Quick Fix (Firm Asset)",
@@ -64,8 +64,8 @@
             name: "Positioning Gap",
             icon: Layout,
             question: "Do you stand out once they find you?",
-            symptom: `"I look like everyone else"`,
-            reality: "The website leads with generic credentials, multiple practice areas, and cliché imagery (city skylines, team photos). It describes what they do without communicating WHY someone should choose them.",
+            symptom: `They think their site stands out because they spent hours picking a specific dark blue hex code and selecting the perfect photo of the local courthouse.`,
+            reality: `Open five divorce attorney websites in the same city. Swap the logos. Nothing feels wrong. The sites lead with credentials, list multiple practice areas, and use the same stock imagery. Nothing tells the consumer why this firm and not the one above or below it.`,
             chainImpact: "When a consumer visits 3 websites that look identical, they can't decide. The positioning gap pushes the consumer into the trust gap.",
             diagnostic: "If another attorney swapped their logo onto your website, would anything feel wrong?",
             fixType: "Quick Fix (Firm Asset)",
@@ -76,9 +76,9 @@
             id: 3,
             name: "Message Gap",
             icon: MessageSquare,
-            question: "Does your copy connect, or does it just inform?",
-            symptom: `"My website feels cold/clinical"`,
-            reality: "The copy is written from the firm's perspective ('we provide', 'our team') rather than the client's perspective ('you're scared', 'you need someone'). It lacks emotional resonance.",
+            question: `Does your website sound like it was written for someone Googling at 2am after the worst conversation of their life? Or does it sound like it was written for a conference booth?`,
+            symptom: `They don't realize their website reads like a brochure for a service, not a lifeline for a person in crisis. It talks about experience, awards, and practice areas while the person reading it just needs to know someone understands what they're going through.`,
+            reality: `The copy is written for attorneys, not for the person sitting alone at their kitchen table trying to figure out what happens next. "We provide aggressive representation" means nothing to someone who doesn't even know what to ask for yet. The gap isn't that the copy is bad. It's that it's speaking to a rational buyer when there is no rational buyer.`,
             chainImpact: "Even with differentiated positioning, a clinical website confirms their fear that lawyers don't get what they're going through. They leave.",
             diagnostic: "Read your homepage out loud. Does it sound like you're talking to a person going through the worst year of their life, or does it sound like a brochure?",
             fixType: "Quick Fix (Firm Asset)",
@@ -90,8 +90,8 @@
             name: "Trust Gap",
             icon: Star,
             question: "Are you externally validated for a decision this big?",
-            symptom: `"I'm unproven for a decision this big"`,
-            reality: "It's about volume AND specificity. Generic reviews confirm competence but don't create connection. Consumers want to read about someone who survived exactly what they are going through.",
+            symptom: `They think having a 4.8-star average is the finish line. They don't realize that "Great lawyer, very professional" does nothing when someone is trying to decide who to trust with their kids and their future.`,
+            reality: `The difference between a review that says "John was very professional and responsive" and one that says "I called John the morning my husband moved out. He walked me through what the next 48 hours would look like. I didn't feel so alone after that." One confirms competence. The other creates connection. Most firms have dozens of the first kind and zero of the second.`,
             chainImpact: "Whether reading reviews on Google or looking at trust badges and testimonials on your website, generic validation leaves the consumer stuck. Specific stories create connection.",
             diagnostic: "If a stranger read a random review from your profile or website, would that review help them choose you over the attorney listed above and below you?",
             fixType: "Compound/Long-term (External & Internal)",
@@ -103,8 +103,8 @@
             name: "Familiarity Gap",
             icon: Users,
             question: "Can they experience working with you before they call?",
-            symptom: `"I'm a stranger when they call"`,
-            reality: "The website relies on text and generic photos (skylines, scales of justice). The consumer can't get a feel for the attorney's personality, empathy, or communication style until they actually book a call.",
+            symptom: `They think the consultation is where the relationship starts. They don't realize that by the time someone books, they've already chosen. The consult is a confirmation, not an audition. If there's no video, the attorney never made the shortlist.`,
+            reality: `The website has text and a headshot. Maybe a team photo. But the consumer can't hear the attorney's voice, see how they explain something complicated, or get any feel for whether this person would actually understand their situation. Video lets someone build a relationship with the attorney before they ever pick up the phone. Without it, the attorney is just a name on a list.`,
             chainImpact: "They have to find you first. But once they do, video is the ultimate closer. By using video to show empathy during the research phase, you create a parasocial relationship. The prospect walks into the consult already feeling like they know you.",
             diagnostic: "Can a prospect watch 5 minutes of you speaking, explaining, and showing empathy before they ever pick up the phone?",
             fixType: "High-Impact Asset (Video)",
@@ -208,7 +208,7 @@
                             <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-1">
                               <MapPin size={18} /> Gap 1: Visibility
                             </h4>
-                            <p className="text-xs font-medium text-blue-600 italic mb-2">"I'm not showing up"</p>
+                            <p className="text-xs font-medium text-blue-600 italic mb-2">They assume searching from the office reflects reality.</p>
                             <div className="text-xs text-left space-y-2 mt-3">
                               <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Missing = Lost.</span></div>
                               <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Found = Proceeds down.</span></div>
@@ -280,7 +280,7 @@
                             <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-1">
                               <Layout size={18} /> Gap 2: Positioning
                             </h4>
-                            <p className="text-xs font-medium text-indigo-600 italic mb-3">"I look like everyone else"</p>
+                            <p className="text-xs font-medium text-indigo-600 italic mb-3">They think custom colors = unique positioning.</p>
                             <p className="text-sm text-slate-600">Do you visually stand out from the other clinical firm websites?</p>
                           </div>
 
@@ -289,7 +289,7 @@
                             <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-1">
                               <MessageSquare size={18} /> Gap 3: Message
                             </h4>
-                            <p className="text-xs font-medium text-purple-600 italic mb-3">"My website feels cold/clinical"</p>
+                            <p className="text-xs font-medium text-purple-600 italic mb-3">They don't realize their site reads like a textbook.</p>
                             <p className="text-sm text-slate-600">Does your website copy speak to their fear and pain directly?</p>
                           </div>
 
@@ -299,7 +299,7 @@
                             <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-1">
                               <Star size={18} /> Gap 4: Trust
                             </h4>
-                            <p className="text-xs font-medium text-pink-600 italic mb-3">"I'm unproven for a decision this big"</p>
+                            <p className="text-xs font-medium text-pink-600 italic mb-3">They assume a 5-star average is all it takes.</p>
                             <p className="text-sm text-slate-600">Do your Google reviews and website trust badges validate your claims?</p>
                           </div>
 
@@ -336,7 +336,7 @@
                                   <Star size={14} className="text-pink-400" /> The Ultimate Trust Signal
                                 </span>
                               </div>
-                              <p className="text-sm font-medium text-rose-300 italic mb-3">"I'm a stranger when they call"</p>
+                              <p className="text-sm font-medium text-rose-300 italic mb-3">They assume the "selling" starts at the consultation.</p>
                               <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
                                 They evaluated you and stuck around. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? Engaging video doesn't just build familiarity—it builds a parasocial relationship that supersedes the need for external reviews.
                               </p>
@@ -431,10 +431,10 @@
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                               <div>
                                 <h4 className="flex items-center gap-2 text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">
-                                  <AlertCircle size={16} /> What The Attorney Says
+                                  <AlertCircle size={16} /> What The Attorney Doesn't Realize
                                 </h4>
                                 <div className="bg-slate-50 rounded-xl p-5 border border-slate-100 h-full">
-                                  <p className="text-slate-700 italic font-medium leading-relaxed">{activeGap.symptom}</p>
+                                  <p className="text-slate-700 font-medium leading-relaxed">{activeGap.symptom}</p>
                                 </div>
                               </div>
                               <div>
