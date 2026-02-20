@@ -51,7 +51,7 @@
             name: "Visibility Gap",
             icon: MapPin,
             question: "Can they find you?",
-            symptom: `"I'm not showing up on the map."`,
+            symptom: `"I'm not showing up"`,
             reality: "When someone searches 'divorce attorney near me,' the firm doesn't appear, appears too low, or has patchwork visibility. It's often a shape and coverage problem, not just reach.",
             chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
             diagnostic: "If someone searched your primary keyword from 20 different points across your market, how many of those would show your firm in the top 3?",
@@ -64,7 +64,7 @@
             name: "Positioning Gap",
             icon: Layout,
             question: "Do you stand out once they find you?",
-            symptom: `Most don't realize this is a problem. They think their site looks different.`,
+            symptom: `"I look like everyone else"`,
             reality: "The website leads with generic credentials, multiple practice areas, and cliché imagery (city skylines, team photos). It describes what they do without communicating WHY someone should choose them.",
             chainImpact: "When a consumer visits 3 websites that look identical, they can't decide. The positioning gap pushes the consumer into the trust gap.",
             diagnostic: "If another attorney swapped their logo onto your website, would anything feel wrong?",
@@ -77,7 +77,7 @@
             name: "Message Gap",
             icon: MessageSquare,
             question: "Does your copy connect, or does it just inform?",
-            symptom: `"People visit my site but don't call." (Usually blamed on traffic/ads)`,
+            symptom: `"My website feels cold/clinical"`,
             reality: "The copy is written from the firm's perspective ('we provide', 'our team') rather than the client's perspective ('you're scared', 'you need someone'). It lacks emotional resonance.",
             chainImpact: "Even with differentiated positioning, a clinical website confirms their fear that lawyers don't get what they're going through. They leave.",
             diagnostic: "Read your homepage out loud. Does it sound like you're talking to a person going through the worst year of their life, or does it sound like a brochure?",
@@ -90,11 +90,11 @@
             name: "Trust Gap",
             icon: Star,
             question: "Are you externally validated for a decision this big?",
-            symptom: `"I don't have enough reviews" or "I need more reviews."`,
-            reality: "It's about volume AND specificity. Generic reviews ('professional', 'responsive') confirm competence but don't create connection. Consumers want to read about someone who survived exactly what they are going through.",
-            chainImpact: "When pushed to reviews as a tiebreaker, generic reviews leave the consumer stuck. Google's random review snippet could make or break the decision.",
-            diagnostic: "If Google pulled any random review from your profile and showed it to a stranger, would that review help them choose you over the attorney listed above and below you?",
-            fixType: "Compound/Long-term (External)",
+            symptom: `"I'm unproven for a decision this big"`,
+            reality: "It's about volume AND specificity. Generic reviews confirm competence but don't create connection. Consumers want to read about someone who survived exactly what they are going through.",
+            chainImpact: "Whether reading reviews on Google or looking at trust badges and testimonials on your website, generic validation leaves the consumer stuck. Specific stories create connection.",
+            diagnostic: "If a stranger read a random review from your profile or website, would that review help them choose you over the attorney listed above and below you?",
+            fixType: "Compound/Long-term (External & Internal)",
             color: "bg-pink-100 text-pink-800 border-pink-300",
             activeColor: "bg-pink-600 text-white"
           },
@@ -103,7 +103,7 @@
             name: "Familiarity Gap",
             icon: Users,
             question: "Can they experience working with you before they call?",
-            symptom: `"I have to sell myself hard on every single consultation."`,
+            symptom: `"I'm a stranger when they call"`,
             reality: "The website relies on text and generic photos (skylines, scales of justice). The consumer can't get a feel for the attorney's personality, empathy, or communication style until they actually book a call.",
             chainImpact: "They have to find you first. But once they do, video is the ultimate closer. By using video to show empathy during the research phase, you create a parasocial relationship. The prospect walks into the consult already feeling like they know you.",
             diagnostic: "Can a prospect watch 5 minutes of you speaking, explaining, and showing empathy before they ever pick up the phone?",
@@ -180,205 +180,201 @@
                 {activeTab === 'flowchart' && (
                   <div className="max-w-5xl mx-auto py-8 animate-in fade-in duration-500">
                     <div className="text-center mb-12">
-                      <h2 className="text-3xl font-bold mb-4">The Real-World Ecosystem</h2>
+                      <h2 className="text-3xl font-bold mb-4">The Continuous Ecosystem</h2>
                       <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                        Consumers don't follow a straight line. Depending on how they find you, they bounce between your Google Profile and your Website looking for a reason to trust you.
+                        Consumers enter from different sources, but they all flow into the same evaluative phase. Here is how your marketing assets connect to drive a final decision.
                       </p>
                     </div>
 
-                    <div className="space-y-8 relative">
+                    <div className="space-y-0 relative">
                       
-                      {/* ENTRY POINTS */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                      {/* --- PHASE 1: DISCOVERY & ENTRY --- */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mb-8">
                         
                         {/* Source 1: Search */}
-                        <div className="flex flex-col items-center h-full">
-                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative">
+                        <div className="flex flex-col items-center h-full w-full">
+                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
                             <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
                               <Search size={20} />
                             </div>
                             <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Active Search</h3>
                             <p className="text-sm text-slate-500">Google Map Pack & Organic</p>
                           </div>
-                          <div className="h-8 border-l-2 border-dashed border-blue-300 my-2 relative">
-                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-blue-300"><ArrowDown size={16} /></div>
-                          </div>
-                          {/* Visibility Gap */}
-                          <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 shadow-sm w-full text-center mb-0 z-10">
-                            <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-2">
+                          
+                          {/* Gap 1 Box */}
+                          <div className="w-[2px] bg-slate-300 h-6"></div>
+                          
+                          <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 shadow-sm w-full text-center z-10">
+                            <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-1">
                               <MapPin size={18} /> Gap 1: Visibility
                             </h4>
+                            <p className="text-xs font-medium text-blue-600 italic mb-2">"I'm not showing up"</p>
                             <div className="text-xs text-left space-y-2 mt-3">
-                              <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Missing: Consumer is lost.</span></div>
-                              <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Found: Proceeds to evaluation.</span></div>
+                              <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Missing = Lost.</span></div>
+                              <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Found = Proceeds down.</span></div>
                             </div>
                           </div>
-                          {/* Connection down */}
-                          <div className="flex-grow min-h-[30px] border-l-2 border-solid border-blue-500 my-2 relative">
-                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-blue-500"><ArrowDown size={16} /></div>
+                          
+                          {/* Connection to unified funnel */}
+                          <div className="flex flex-col items-center flex-grow w-full">
+                             <div className="w-[2px] bg-slate-300 flex-grow min-h-[30px]"></div>
+                             <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
                           </div>
                         </div>
 
                         {/* Source 2: Direct / Paid */}
-                        <div className="flex flex-col items-center h-full">
-                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative">
+                        <div className="flex flex-col items-center h-full w-full">
+                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
                             <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
                               <Radio size={20} />
                             </div>
                             <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Paid & Direct</h3>
                             <p className="text-sm text-slate-500">Ads, Radio, Billboards</p>
                           </div>
-                          <div className="flex-grow min-h-[40px] border-l-2 border-dashed border-slate-300 my-2 flex items-center justify-center relative w-full">
-                             <div className="bg-slate-100 text-xs px-2 py-1 rounded-full text-slate-500 absolute border border-slate-200">Bypasses Visibility</div>
-                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-slate-300"><ArrowDown size={16} /></div>
+                          
+                          {/* Connection to unified funnel */}
+                          <div className="flex flex-col items-center flex-grow w-full">
+                             <div className="w-[2px] border-l-2 border-dashed border-slate-300 h-12"></div>
+                             <div className="bg-slate-50 text-xs px-3 py-1.5 rounded-full text-slate-500 font-medium border border-slate-200 z-10 whitespace-nowrap shadow-sm">Bypasses Visibility</div>
+                             <div className="w-[2px] border-l-2 border-dashed border-slate-300 flex-grow min-h-[30px]"></div>
+                             <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
                           </div>
                         </div>
 
                         {/* Source 3: Referrals */}
-                        <div className="flex flex-col items-center h-full">
-                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative">
+                        <div className="flex flex-col items-center h-full w-full">
+                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
                             <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
                               <Users size={20} />
                             </div>
                             <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Referrals</h3>
                             <p className="text-sm text-slate-500">Past clients, other attorneys</p>
                           </div>
-                          <div className="flex-grow min-h-[40px] border-l-2 border-dashed border-green-300 my-2 flex items-center justify-center relative w-full">
-                             <div className="bg-green-50 text-xs px-2 py-1 rounded-full text-green-700 absolute border border-green-200 shadow-sm flex items-center gap-1"><Star size={12}/> Borrowed Trust</div>
-                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-green-400"><ArrowDown size={16} /></div>
+                          
+                          {/* Connection to unified funnel */}
+                          <div className="flex flex-col items-center flex-grow w-full">
+                             <div className="w-[2px] border-l-2 border-dashed border-green-300 h-12"></div>
+                             <div className="bg-green-50 text-xs px-3 py-1.5 rounded-full text-green-700 font-bold border border-green-200 shadow-sm flex items-center gap-1 z-10 whitespace-nowrap"><Star size={12}/> Borrowed Trust</div>
+                             <div className="w-[2px] border-l-2 border-dashed border-green-300 flex-grow min-h-[30px]"></div>
+                             <div className="text-green-500 -mt-1"><ArrowDown size={20} /></div>
                           </div>
                         </div>
 
                       </div>
 
-                      {/* THE TWO PILLARS (Evaluation) */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+
+                      {/* --- PHASE 2: THE EVALUATION GAUNTLET --- */}
+                      <div className="bg-slate-100 rounded-3xl p-6 md:p-8 border border-slate-200 relative shadow-inner mb-0">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                          Phase 2: The Evaluation
+                        </div>
                         
-                        {/* Horizontal connection arrows (Desktop only) */}
-                        <div className="hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-16 z-0 w-full px-12 pointer-events-none">
-                          <div className="w-full flex items-center justify-between text-slate-300">
-                            <ArrowRight size={20} className="transform rotate-180" />
-                            <div className="flex-1 border-t-2 border-dashed border-slate-300 mx-2"></div>
-                            <span className="bg-slate-50 text-slate-500 text-xs font-bold px-2 py-1 rounded-full border border-slate-200">Needs Validation</span>
-                          </div>
-                          <div className="w-full flex items-center justify-between text-slate-300 mt-8">
-                            <span className="bg-slate-50 text-slate-500 text-xs font-bold px-2 py-1 rounded-full border border-slate-200">Needs More Info</span>
-                            <div className="flex-1 border-t-2 border-dashed border-slate-300 mx-2"></div>
-                            <ArrowRight size={20} />
-                          </div>
+                        <div className="text-center mb-6 mt-4">
+                          <p className="text-slate-600 font-medium">All traffic sources merge here. Consumers look at your Website and Online Profile concurrently to answer three questions:</p>
                         </div>
 
-                        {/* PILLAR 1: GOOGLE ECOSYSTEM */}
-                        <div className="bg-slate-100 rounded-3xl p-6 border border-slate-200 relative z-10">
-                          <div className="flex items-center justify-center gap-2 mb-6">
-                            <div className="bg-blue-600 text-white p-2 rounded-lg"><Search size={20} /></div>
-                            <h3 className="text-xl font-bold text-slate-800">Google Business Profile</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                          
+                          {/* Gap 2 */}
+                          <div className="bg-white border-2 border-indigo-200 rounded-2xl p-5 shadow-sm">
+                            <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-1">
+                              <Layout size={18} /> Gap 2: Positioning
+                            </h4>
+                            <p className="text-xs font-medium text-indigo-600 italic mb-3">"I look like everyone else"</p>
+                            <p className="text-sm text-slate-600">Do you visually stand out from the other clinical firm websites?</p>
                           </div>
 
-                          <div className="space-y-6">
-                            {/* Gap 4 */}
-                            <div className="bg-white border-2 border-pink-200 rounded-2xl p-5 shadow-sm">
-                              <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-2">
-                                <Star size={18} /> Gap 4: Trust (Reviews)
-                              </h4>
-                              <p className="text-sm text-slate-600 mb-3">They found you. Do your reviews tell a specific, relatable story about surviving divorce?</p>
-                              
-                              <div className="space-y-2 mt-4">
-                                <div className="bg-green-50 border border-green-200 p-3 rounded-xl flex items-center justify-between">
-                                  <span className="text-sm font-bold text-green-800">High Trust Found</span>
-                                  <span className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-md flex items-center gap-1">Call <ArrowRight size={12}/></span>
-                                </div>
-                                <div className="md:hidden flex justify-center text-slate-400 my-2"><ArrowDown size={16} /></div>
-                                <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl flex items-center justify-between md:hidden">
-                                  <span className="text-sm text-slate-600 font-medium">Needs More Info</span>
-                                  <span className="text-slate-400 text-xs font-bold px-2 py-1 flex items-center gap-1">Go to Website <ArrowDown size={12}/></span>
-                                </div>
+                          {/* Gap 3 */}
+                          <div className="bg-white border-2 border-purple-200 rounded-2xl p-5 shadow-sm">
+                            <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-1">
+                              <MessageSquare size={18} /> Gap 3: Message
+                            </h4>
+                            <p className="text-xs font-medium text-purple-600 italic mb-3">"My website feels cold/clinical"</p>
+                            <p className="text-sm text-slate-600">Does your website copy speak to their fear and pain directly?</p>
+                          </div>
+
+                          {/* Gap 4 */}
+                          <div className="bg-white border-2 border-pink-200 rounded-2xl p-5 shadow-sm relative overflow-hidden">
+                            <div className="absolute top-0 right-0 bg-pink-100 text-pink-800 text-[9px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">External Trust</div>
+                            <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-1">
+                              <Star size={18} /> Gap 4: Trust
+                            </h4>
+                            <p className="text-xs font-medium text-pink-600 italic mb-3">"I'm unproven for a decision this big"</p>
+                            <p className="text-sm text-slate-600">Do your Google reviews and website trust badges validate your claims?</p>
+                          </div>
+
+                        </div>
+                      </div>
+
+
+                      {/* --- PHASE 3: THE CLOSER --- */}
+                      <div className="flex flex-col items-center justify-center w-full pt-4">
+                        <div className="w-[2px] bg-slate-300 h-10"></div>
+                        <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
+
+                        <div className="bg-rose-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-rose-800 w-full max-w-4xl mt-6">
+                          {/* Wrapper for the background icon to prevent badge clipping */}
+                          <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
+                            <div className="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4">
+                              <Users size={120} />
+                            </div>
+                          </div>
+                          
+                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
+                            Phase 3: The Closer
+                          </div>
+                          
+                          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 pt-2">
+                            <div className="flex-1">
+                              <div className="flex flex-wrap items-center gap-3 mb-2">
+                                <h3 className="text-2xl font-bold flex items-center gap-2">
+                                  <Users size={28} className="text-rose-400" />
+                                  Gap 5: Familiarity (Video)
+                                </h3>
+                                {/* Trust Builder Badge */}
+                                <span className="flex items-center gap-1.5 bg-pink-500/20 text-pink-200 text-xs font-bold px-2.5 py-1 rounded-md border border-pink-500/30">
+                                  <Star size={14} className="text-pink-400" /> The Ultimate Trust Signal
+                                </span>
+                              </div>
+                              <p className="text-sm font-medium text-rose-300 italic mb-3">"I'm a stranger when they call"</p>
+                              <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
+                                They evaluated you and stuck around. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? Engaging video doesn't just build familiarity—it builds a parasocial relationship that supersedes the need for external reviews.
+                              </p>
+                            </div>
+                            <div className="w-full md:w-auto bg-rose-950/50 p-5 rounded-2xl border border-rose-800/50 text-center flex flex-col justify-center min-w-[200px]">
+                              <span className="block text-rose-300 text-sm font-bold mb-3">When video closes this gap:</span>
+                              <div className="bg-green-500 text-white font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 shadow-sm">
+                                They call ready to hire <ArrowRight size={16} />
                               </div>
                             </div>
                           </div>
                         </div>
+                      </div>
 
-                        {/* PILLAR 2: WEBSITE ECOSYSTEM */}
-                        <div className="bg-slate-100 rounded-3xl p-6 border border-slate-200 relative z-10 mt-8 md:mt-0">
-                          <div className="flex items-center justify-center gap-2 mb-6">
-                            <div className="bg-indigo-600 text-white p-2 rounded-lg"><Layout size={20} /></div>
-                            <h3 className="text-xl font-bold text-slate-800">The Firm Website</h3>
-                          </div>
+
+                      {/* --- PHASE 4: THE DEFAULT OUTCOME --- */}
+                      <div className="flex flex-col items-center justify-center w-full">
+                        <div className="w-[2px] bg-slate-300 h-10 mt-2"></div>
+                        <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
+
+                        <div className="bg-slate-900 rounded-3xl p-8 text-white text-center shadow-lg w-full max-w-4xl mt-6 relative">
+                          <h3 className="text-2xl font-bold mb-2">The Final Decision</h3>
+                          <p className="text-slate-400 mb-6 text-sm">If your evaluation phase and website fail to provide a compelling reason to choose you...</p>
                           
-                          <div className="bg-white border-2 border-indigo-200 rounded-2xl p-5 shadow-sm relative overflow-hidden">
-                            <div className="absolute top-0 right-0 bg-indigo-100 text-indigo-800 text-[10px] font-bold px-2 py-1 rounded-bl-lg uppercase">Evaluated Together</div>
-                            
-                            {/* Gap 2 */}
-                            <div className="mb-5">
-                              <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-1">
-                                <Layout size={18} /> Gap 2: Positioning
-                              </h4>
-                              <p className="text-sm text-slate-600">Do you visually stand out from the 3 other clinical websites they just looked at?</p>
+                          <div className="bg-red-950/40 rounded-2xl p-6 border border-red-900/50">
+                            <div className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-red-500/20 text-red-400 mb-4">
+                              <XCircle size={24} />
                             </div>
-
-                            <div className="border-t border-slate-100 my-4"></div>
-
-                            {/* Gap 3 */}
-                            <div className="mb-4">
-                              <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-1">
-                                <MessageSquare size={18} /> Gap 3: Message
-                              </h4>
-                              <p className="text-sm text-slate-600">Does your copy speak to their fear and pain, or is it just a corporate brochure?</p>
+                            <h4 className="font-bold text-lg text-red-400 mb-3">All Evaluative Gaps Open (The Default)</h4>
+                            <div className="bg-slate-900 p-5 rounded-xl border border-slate-700 text-sm font-medium text-slate-300 text-left space-y-4">
+                              <p>The consumer defaults to variables completely outside of your brand's value:</p>
+                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-red-300">
+                                <li className="flex items-center gap-2"><MapPin size={18}/> Proximity (Closest office)</li>
+                                <li className="flex items-center gap-2"><Star size={18}/> Review Volume (Just the number)</li>
+                                <li className="flex items-center gap-2"><Activity size={18}/> Speed (Who answered first)</li>
+                                <li className="flex items-center gap-2"><Layout size={18}/> Price (Cheapest consult)</li>
+                              </ul>
                             </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      <div className="flex justify-center text-slate-300 my-2"><ArrowDown size={24} /></div>
-
-                      {/* THE CLOSER: FAMILIARITY */}
-                      <div className="bg-rose-900 rounded-3xl p-6 text-white shadow-lg relative overflow-hidden border border-rose-800 mx-auto max-w-4xl">
-                        <div className="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4">
-                          <Users size={120} />
-                        </div>
-                        <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
-                          <div className="flex-1">
-                            <div className="inline-flex items-center gap-2 bg-rose-800 text-rose-200 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide mb-3">
-                              The Ultimate Closer
-                            </div>
-                            <h3 className="text-2xl font-bold flex items-center gap-3 mb-2">
-                              <Users size={28} className="text-rose-400" />
-                              Gap 5: Familiarity (Video)
-                            </h3>
-                            <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
-                              They found you. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? When your website uses engaging video to show empathy, you build a parasocial relationship before they ever dial the phone.
-                            </p>
-                          </div>
-                          <div className="w-full md:w-auto bg-rose-950/50 p-4 rounded-2xl border border-rose-800/50 text-center flex flex-col justify-center min-w-[200px]">
-                            <span className="block text-rose-300 text-sm font-bold mb-2">When video closes this gap:</span>
-                            <div className="bg-green-500 text-white font-bold py-2 px-4 rounded-xl flex items-center justify-center gap-2">
-                              They call you <ArrowRight size={16} />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div className="flex justify-center text-slate-300 my-2"><ArrowDown size={24} /></div>
-
-                      {/* THE FINAL OUTCOME */}
-                      <div className="bg-slate-900 rounded-3xl p-8 text-white text-center shadow-lg mx-auto max-w-4xl">
-                        <h3 className="text-2xl font-bold mb-2">The Final Decision</h3>
-                        <p className="text-slate-400 mb-6 text-sm">If your profiles and website fail to provide a compelling reason to choose you...</p>
-                        
-                        <div className="bg-red-950/40 rounded-2xl p-6 border border-red-900/50">
-                          <div className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-red-500/20 text-red-400 mb-4">
-                            <XCircle size={24} />
-                          </div>
-                          <h4 className="font-bold text-lg text-red-400 mb-3">All Evaluative Gaps Open (The Default)</h4>
-                          <div className="bg-slate-900 p-4 rounded-xl border border-slate-700 text-sm font-medium text-slate-300 text-left space-y-3">
-                            <p>The consumer defaults to variables outside of your brand's value:</p>
-                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 text-red-300">
-                              <li className="flex items-center gap-2"><MapPin size={16}/> Proximity (Closest office)</li>
-                              <li className="flex items-center gap-2"><Star size={16}/> Review Volume (Just the number)</li>
-                              <li className="flex items-center gap-2"><Activity size={16}/> Speed (Who answered first)</li>
-                              <li className="flex items-center gap-2"><Layout size={16}/> Price (Cheapest consult)</li>
-                            </ul>
                           </div>
                         </div>
                       </div>
