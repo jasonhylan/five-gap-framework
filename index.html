@@ -21,7 +21,7 @@
     <script type="text/babel">
         const { useState } = React;
 
-        // --- Custom Icons (Replacing external lucide-react dependency for the single file) ---
+        // --- Custom Icons ---
         const IconBase = ({ children, size = 24, className = "" }) => (
             <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
                 {children}
@@ -42,6 +42,8 @@
         const Network = (props) => <IconBase {...props}><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></IconBase>;
         const XCircle = (props) => <IconBase {...props}><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></IconBase>;
         const Trophy = (props) => <IconBase {...props}><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></IconBase>;
+        const Search = (props) => <IconBase {...props}><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></IconBase>;
+        const Radio = (props) => <IconBase {...props}><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></IconBase>;
 
         const gapsData = [
           {
@@ -51,7 +53,7 @@
             question: "Can they find you?",
             symptom: `"I'm not showing up on the map."`,
             reality: "When someone searches 'divorce attorney near me,' the firm doesn't appear, appears too low, or has patchwork visibility. It's often a shape and coverage problem, not just reach.",
-            chainImpact: "If they can't find you, nothing else matters. This is the first gate. Every other gap is irrelevant if this one isn't closed.",
+            chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
             diagnostic: "If someone searched your primary keyword from 20 different points across your market, how many of those would show your firm in the top 3?",
             fixType: "Quick Fix (Firm Asset)",
             color: "bg-blue-100 text-blue-800 border-blue-300",
@@ -150,7 +152,7 @@
                   >
                     <div className="flex items-center gap-2">
                       <Network size={18} />
-                      Visual Flowchart
+                      Ecosystem Flowchart
                     </div>
                   </button>
                   <button 
@@ -176,102 +178,178 @@
 
               <main className="max-w-6xl mx-auto px-6">
                 {activeTab === 'flowchart' && (
-                  <div className="max-w-5xl mx-auto py-8">
-                    <div className="text-center mb-12">
-                      <h2 className="text-3xl font-bold mb-4">The Decision Chain Flowchart</h2>
-                      <p className="text-slate-600 max-w-2xl mx-auto">
-                        When one gap fails to close, the consumer moves to the next one looking for a reason to decide. 
-                        If none close, they default to variables outside your control.
+                  <div className="max-w-5xl mx-auto py-8 animate-in fade-in duration-500">
+                    <div className="text-center mb-16">
+                      <h2 className="text-3xl font-bold mb-4">The Marketing Ecosystem</h2>
+                      <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                        Consumers don't just find you one way. They enter through different channels, and they are looking for a reason to choose you. Here is how your marketing assets interact with their journey.
                       </p>
                     </div>
 
-                    <div className="flex flex-col items-center">
-                      <div className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold shadow-lg mb-4 z-10 relative">
-                        Consumer searches "divorce attorney near me"
-                      </div>
-                      <div className="text-slate-400 mb-4"><ArrowDown size={32} /></div>
-
-                      <div className="w-full space-y-0 relative">
-                        <div className="hidden md:block absolute top-0 bottom-0 left-[25%] md:left-1/3 w-1 bg-slate-200 -z-10 translate-x-1/2"></div>
-                        
-                        {gapsData.map((gap, index) => {
-                          const Icon = gap.icon;
-                          return (
-                            <div key={gap.id} className="relative flex flex-col md:flex-row items-center md:items-stretch mb-8 md:mb-12 group">
-                              <div className="w-full md:w-2/3 flex flex-col items-center md:items-end md:pr-12 relative z-10">
-                                <div className={`w-full max-w-md bg-white border-2 rounded-2xl shadow-sm transition-all duration-300 hover:shadow-md ${gap.color.replace('bg-', 'border-').split(' ')[2]} overflow-hidden`}>
-                                  <div className={`px-6 py-4 flex items-center gap-3 border-b ${gap.color.replace('text-', 'bg-').replace('bg-', 'bg-opacity-20 bg-').split(' ')[0]}`}>
-                                    <div className={`p-2 rounded-lg bg-white bg-opacity-50`}>
-                                      <Icon size={24} className={gap.color.split(' ')[1]} />
-                                    </div>
-                                    <h3 className="font-bold text-lg text-slate-800">Gap {gap.id}: {gap.name}</h3>
-                                  </div>
-                                  <div className="p-6 bg-white">
-                                    <p className="font-medium text-slate-700 mb-2">"{gap.question}"</p>
-                                    <p className="text-sm text-slate-500">{gap.chainImpact.split('.')[0]}.</p>
-                                  </div>
-                                </div>
-
-                                {index < gapsData.length - 1 && (
-                                  <div className="flex flex-col items-center text-slate-400 mt-6 mb-2 md:mr-32 relative z-10 bg-slate-50 px-2 rounded-full">
-                                    <span className="text-xs font-bold uppercase tracking-wider mb-1 text-slate-500">Gap Open (Move Next)</span>
-                                    <ArrowDown size={28} />
-                                  </div>
-                                )}
-                              </div>
-
-                              <div className="w-full md:w-1/3 flex flex-col justify-center mt-4 md:mt-0 relative z-10 md:pl-8">
-                                <div className="hidden md:block absolute top-1/2 left-0 w-8 h-1 bg-green-200 -translate-y-1/2 -z-10"></div>
-                                <div className="hidden md:flex absolute top-1/2 left-4 -translate-y-1/2 text-green-500 bg-slate-50 rounded-full z-10">
-                                  <ArrowRight size={24} />
-                                </div>
-                                <div className="md:hidden flex justify-center w-full text-green-500 my-2">
-                                   <ArrowDown size={24} />
-                                </div>
-
-                                <div className="bg-green-50 border-2 border-green-200 rounded-2xl p-6 shadow-sm w-full max-w-xs mx-auto md:mx-0">
-                                  <div className="flex items-center gap-2 text-green-700 font-bold mb-2">
-                                    <CheckCircle2 size={20} />
-                                    <span>Gap Closed</span>
-                                  </div>
-                                  <p className="text-sm text-green-800 font-medium">
-                                    Consumer finds a reason to choose.
-                                  </p>
-                                  <div className="mt-3 inline-flex items-center gap-2 bg-green-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">
-                                    <Trophy size={14} /> Firm Chosen
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-
-                      <div className="text-slate-400 mb-4 z-10 relative bg-slate-50 rounded-full px-2"><ArrowDown size={32} /></div>
+                    <div className="space-y-6 relative">
                       
-                      <div className="w-full max-w-2xl bg-red-50 border-2 border-red-200 rounded-2xl p-8 text-center shadow-sm z-10 relative">
-                        <div className="inline-flex justify-center items-center w-16 h-16 rounded-full bg-red-100 text-red-500 mb-4">
-                          <XCircle size={32} />
+                      {/* ENTRY POINTS */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
+                        
+                        {/* Source 1: Search */}
+                        <div className="flex flex-col items-center">
+                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative">
+                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
+                              <Search size={20} />
+                            </div>
+                            <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Active Search</h3>
+                            <p className="text-sm text-slate-500">Google Map Pack & Organic</p>
+                          </div>
+                          <div className="h-8 border-l-2 border-dashed border-blue-300 my-2 relative">
+                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-blue-300"><ArrowDown size={16} /></div>
+                          </div>
+                          {/* Visibility Gap (Only applies to search) */}
+                          <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 shadow-sm w-full text-center mb-4">
+                            <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-2">
+                              <MapPin size={18} /> Gap 1: Visibility
+                            </h4>
+                            <div className="text-xs text-left space-y-2 mt-3">
+                              <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">If missing: Consumer is lost.</span></div>
+                              <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">If found: Enters consideration.</span></div>
+                            </div>
+                          </div>
                         </div>
-                        <h3 className="text-2xl font-bold text-red-900 mb-3">All Gaps Open: The Default Decision</h3>
-                        <p className="text-red-800 text-lg mb-4">
-                          The consumer has found no compelling reason to choose any firm.
-                        </p>
-                        <div className="bg-white border border-red-100 rounded-xl p-6 inline-block text-left shadow-sm">
-                          <p className="text-sm font-bold text-red-400 uppercase tracking-wider mb-2">They now pick based on:</p>
-                          <ul className="space-y-2 text-slate-700 font-medium">
-                            <li className="flex items-center gap-2"><span>📍</span> Proximity (Who is closest?)</li>
-                            <li className="flex items-center gap-2"><span>⭐</span> Review Volume (Not quality)</li>
-                            <li className="flex items-center gap-2"><span>☎️</span> Speed (Who answered the phone first?)</li>
-                            <li className="flex items-center gap-2"><span>💵</span> Price (Who is cheapest?)</li>
-                          </ul>
+
+                        {/* Source 2: Direct / Paid */}
+                        <div className="flex flex-col items-center">
+                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative">
+                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
+                              <Radio size={20} />
+                            </div>
+                            <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Paid & Direct</h3>
+                            <p className="text-sm text-slate-500">Ads, Radio, Billboards</p>
+                          </div>
+                          <div className="h-full min-h-[40px] border-l-2 border-dashed border-slate-300 my-2 flex items-center justify-center relative">
+                             <div className="bg-slate-100 text-xs px-2 py-1 rounded-full text-slate-500 absolute">Bypasses Visibility</div>
+                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-slate-300"><ArrowDown size={16} /></div>
+                          </div>
                         </div>
-                        <p className="mt-6 text-sm text-red-700 font-bold uppercase tracking-wider">Result: The attorney loses a case without knowing why.</p>
+
+                        {/* Source 3: Referrals */}
+                        <div className="flex flex-col items-center">
+                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative">
+                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
+                              <Users size={20} />
+                            </div>
+                            <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Referrals</h3>
+                            <p className="text-sm text-slate-500">Past clients, other attorneys</p>
+                          </div>
+                          <div className="h-full min-h-[40px] border-l-2 border-dashed border-slate-300 my-2 flex items-center justify-center relative">
+                             <div className="bg-slate-100 text-xs px-2 py-1 rounded-full text-slate-500 absolute">Bypasses Visibility</div>
+                             <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 text-slate-300"><ArrowDown size={16} /></div>
+                          </div>
+                        </div>
+
                       </div>
+
+                      {/* THE WEBSITE EVALUATION */}
+                      <div className="bg-slate-100 rounded-3xl p-8 border border-slate-200 relative mt-4">
+                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-200 text-slate-700 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                          All Traffic Funnels Here
+                        </div>
+                        <h3 className="text-xl font-bold text-center mb-6">The Website Experience</h3>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-5 shadow-sm w-full">
+                            <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-2">
+                              <Layout size={18} /> Gap 2: Positioning
+                            </h4>
+                            <p className="text-sm text-indigo-800/80 mb-3 font-medium">Do you stand out from the competition?</p>
+                            <div className="text-xs text-left space-y-2 mt-3 bg-white p-3 rounded-xl border border-indigo-100">
+                              <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Blend in: Consumer relies on reviews/price.</span></div>
+                              <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Stand out: Consumer finds a reason to stay.</span></div>
+                            </div>
+                          </div>
+
+                          <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-5 shadow-sm w-full">
+                            <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-2">
+                              <MessageSquare size={18} /> Gap 3: Message
+                            </h4>
+                            <p className="text-sm text-purple-800/80 mb-3 font-medium">Does your copy connect emotionally?</p>
+                            <div className="text-xs text-left space-y-2 mt-3 bg-white p-3 rounded-xl border border-purple-100">
+                              <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Clinical: Confirms fear that lawyers don't care.</span></div>
+                              <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Empathetic: Consumer feels understood.</span></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-center my-4 text-slate-300"><ArrowDown size={24} /></div>
+
+                      {/* VALIDATION & FAMILIARITY */}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-pink-50 border-2 border-pink-200 rounded-3xl p-6 shadow-sm w-full text-center relative overflow-hidden">
+                          <div className="absolute top-0 left-0 w-2 h-full bg-pink-400"></div>
+                          <h4 className="font-bold text-pink-900 flex items-center justify-center gap-2 mb-2 text-lg">
+                            <Star size={20} /> Gap 4: Trust
+                          </h4>
+                          <p className="text-sm text-pink-800/80 mb-4 font-medium">External validation (Reviews & Reputation)</p>
+                          <p className="text-sm text-slate-700 text-left mb-4">When a consumer is unsure after viewing your website, they look for proof from others who survived the same crisis.</p>
+                          <div className="text-xs text-left space-y-2 bg-white p-3 rounded-xl border border-pink-100">
+                            <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Generic Reviews: Doesn't help them decide.</span></div>
+                            <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Specific Stories: Creates deep connection.</span></div>
+                          </div>
+                        </div>
+
+                        <div className="bg-rose-50 border-2 border-rose-200 rounded-3xl p-6 shadow-sm w-full text-center relative overflow-hidden">
+                          <div className="absolute top-0 left-0 w-2 h-full bg-rose-400"></div>
+                          <h4 className="font-bold text-rose-900 flex items-center justify-center gap-2 mb-2 text-lg">
+                            <Users size={20} /> Gap 5: Familiarity
+                          </h4>
+                          <p className="text-sm text-rose-800/80 mb-4 font-medium">The "Ace in the Hole" (Social, PR, Content)</p>
+                          <p className="text-sm text-slate-700 text-left mb-4">This gap exists <strong>outside</strong> the normal funnel. If you close this, it overrides almost every other gap.</p>
+                          <div className="text-xs text-left space-y-2 bg-white p-3 rounded-xl border border-rose-100">
+                            <div className="flex gap-2"><span className="text-slate-400 font-bold">-</span><span className="text-slate-600">If missing: You start the consultation at zero.</span></div>
+                            <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">If present: They walk in already leaning in.</span></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-center my-4 text-slate-300"><ArrowDown size={24} /></div>
+
+                      {/* THE DECISION */}
+                      <div className="bg-slate-900 rounded-3xl p-8 text-white text-center shadow-lg">
+                        <h3 className="text-2xl font-bold mb-6">The Final Decision</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          
+                          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                            <div className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-green-500/20 text-green-400 mb-4">
+                              <Trophy size={24} />
+                            </div>
+                            <h4 className="font-bold text-lg text-green-400 mb-2">A Reason is Found</h4>
+                            <p className="text-slate-300 text-sm mb-4">Because you successfully closed the Positioning, Message, Trust, or Familiarity gap, the consumer chose you based on value.</p>
+                            <div className="bg-slate-900 p-3 rounded-xl border border-slate-700 text-xs font-bold text-slate-400 uppercase tracking-wider">
+                              Result: You win the client.
+                            </div>
+                          </div>
+
+                          <div className="bg-slate-800 rounded-2xl p-6 border border-slate-700">
+                            <div className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-red-500/20 text-red-400 mb-4">
+                              <XCircle size={24} />
+                            </div>
+                            <h4 className="font-bold text-lg text-red-400 mb-2">All Evaluative Gaps Open</h4>
+                            <p className="text-slate-300 text-sm mb-4">The consumer found NO compelling reason to choose your firm over the others they looked at.</p>
+                            <div className="bg-slate-900 p-3 rounded-xl border border-slate-700 text-xs font-bold text-slate-400 uppercase tracking-wider text-left space-y-1">
+                              <div>Result: They default to variables you can't control:</div>
+                              <div className="text-red-300">📍 Proximity (Closest office)</div>
+                              <div className="text-red-300">⭐ Review Volume (Highest number)</div>
+                              <div className="text-red-300">💵 Price (Cheapest consult)</div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 )}
 
+                {/* --- The Framework Breakdown Tab --- */}
                 {activeTab === 'framework' && (
                   <div className="space-y-12">
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
@@ -335,7 +413,7 @@
                               </div>
                             </div>
                             <div className="pt-6 border-t border-slate-100">
-                              <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Why it matters in the chain</h4>
+                              <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3">Why it matters in the ecosystem</h4>
                               <p className="text-slate-800 text-lg leading-relaxed">{activeGap.chainImpact}</p>
                             </div>
                           </div>
@@ -353,7 +431,7 @@
                         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                           <h4 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4">The Final Default</h4>
                           <p className="text-sm text-slate-600 leading-relaxed">
-                            If none of the gaps close, the consumer defaults to proximity, price, or whoever answers the phone first. The attorney loses a case they should have won, and they never know why.
+                            If none of the evaluative gaps close, the consumer defaults to proximity, price, or whoever answers the phone first. The attorney loses a case they should have won, and they never know why.
                           </p>
                         </div>
                       </div>
@@ -361,6 +439,7 @@
                   </div>
                 )}
 
+                {/* --- Diagnostic Assessment Tab --- */}
                 {activeTab === 'assessment' && (
                   <div className="max-w-3xl mx-auto">
                     <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
@@ -411,10 +490,10 @@
                           </div>
                         </div>
                       ) : (
-                        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                        <div className="space-y-8 animate-in fade-in duration-500">
                           <div className="bg-slate-50 rounded-xl p-8 text-center border border-slate-200">
                             <h3 className="text-2xl font-bold mb-2">Your Diagnostic Results</h3>
-                            <p className="text-slate-600">Here is where your decision chain is breaking.</p>
+                            <p className="text-slate-600">Here is where your ecosystem is breaking down.</p>
                           </div>
 
                           <div className="space-y-4">
@@ -431,7 +510,7 @@
                                     </h4>
                                     <p className={isClosed ? 'text-slate-600' : 'text-red-700 opacity-90'}>
                                       {isClosed 
-                                        ? "Consumers pass through this stage successfully." 
+                                        ? "Consumers find validation at this stage." 
                                         : `You are losing prospects here. ${gap.fixType === 'Quick Fix (Firm Asset)' ? 'This is a firm asset issue that can be fixed relatively quickly.' : 'This is an external presence issue that requires compounding effort to build.'}`
                                       }
                                     </p>
