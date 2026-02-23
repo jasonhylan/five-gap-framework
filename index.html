@@ -44,6 +44,9 @@
         const Trophy = (props) => <IconBase {...props}><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></IconBase>;
         const Search = (props) => <IconBase {...props}><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></IconBase>;
         const Radio = (props) => <IconBase {...props}><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.48-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></IconBase>;
+        const Check = (props) => <IconBase {...props}><polyline points="20 6 9 17 4 12"/></IconBase>;
+        const ChevronRight = (props) => <IconBase {...props}><polyline points="9 18 15 12 9 6"/></IconBase>;
+        const ChevronLeft = (props) => <IconBase {...props}><polyline points="15 18 9 12 15 6"/></IconBase>;
 
         const gapsData = [
           {
@@ -51,7 +54,8 @@
             name: "Visibility Gap",
             icon: MapPin,
             question: "Can they find you?",
-            symptom: `Searching from your office puts you on top of your own pin. Of course you show up. But local search is driven by proximity, and most firms only appear within a 5 to 8 mile radius of their address. Outside that circle, you don't exist. The question isn't whether you rank. It's how far that ranking actually reaches.`,
+            quote: "I'm not showing up",
+            blindSpot: `Searching from your office puts you on top of your own pin. Of course you show up. But local search is driven by proximity, and most firms only appear within a 5 to 8 mile radius of their address. Outside that circle, you don't exist. The question isn't whether you rank. It's how far that ranking actually reaches.`,
             reality: `Your visibility is likely just a small circle around your physical office. While you rank #1 from your desk, a highly qualified lead searching from their home ten minutes away sees your competitors instead.`,
             chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
             diagnostic: "If someone searched 'divorce attorney near me' from neighborhoods near your address, how many of those searches would show you in the top three?",
@@ -64,7 +68,8 @@
             name: "Positioning Gap",
             icon: Layout,
             question: "Do you stand out once they find you?",
-            symptom: `Picking the perfect dark blue hex code and a photo of the local courthouse doesn't make a website stand out. Open five divorce attorney sites in the same city and swap the logos. Nothing feels wrong. That's the problem.`,
+            quote: "I look like everyone else",
+            blindSpot: `Picking the perfect dark blue hex code and a photo of the local courthouse doesn't make a website stand out. Open five divorce attorney sites in the same city and swap the logos. Nothing feels wrong. That's the problem.`,
             reality: `Every site leads with the same credentials, lists the same practice areas, and uses the same stock imagery. Nothing on the page tells the consumer why they should choose this specific firm instead of the one listed directly below it.`,
             chainImpact: "When a consumer visits 3 websites that look identical, they can't decide. The positioning gap pushes the consumer into the trust gap.",
             diagnostic: "If you removed your headshot and swapped your logo with another divorce attorney's, would a prospect be able to tell the difference?",
@@ -77,7 +82,8 @@
             name: "Message Gap",
             icon: MessageSquare,
             question: `Does your website sound like it was written for someone Googling at 2am after the worst conversation of their life? Or does it sound like it was written for a conference booth?`,
-            symptom: `A website that leads with credentials, awards, and "aggressive representation" isn't speaking to the person reading it. Someone Googling at 2am after the worst conversation of their life doesn't need a brochure. They need to know someone understands what they're going through.`,
+            quote: "My website feels cold/clinical",
+            blindSpot: `A website that leads with credentials, awards, and "aggressive representation" isn't speaking to the person reading it. Someone Googling at 2am after the worst conversation of their life doesn't need a brochure. They need to know someone understands what they're going through.`,
             reality: `The copy is written for other attorneys, not for the person sitting alone at their kitchen table trying to figure out what happens next. The gap isn't that the copy is bad—it's that it's speaking to a rational buyer when there is no rational buyer in family law.`,
             chainImpact: "Even with differentiated positioning, a clinical website confirms their fear that lawyers don't get what they're going through. They leave.",
             diagnostic: "Read your homepage out loud. Does it sound like you're talking to a person going through the worst year of their life, or does it sound like a brochure?",
@@ -90,7 +96,8 @@
             name: "Trust Gap",
             icon: Star,
             question: "Are you externally validated for a decision this big?",
-            symptom: `A 4.8-star average is not the finish line. Reviews that say "great lawyer" and "very professional" don't necessarily convince someone trying to decide who to trust with their kids and their future.`,
+            quote: "I'm unproven for a decision this big",
+            blindSpot: `A 4.8-star average is not the finish line. Reviews that say "great lawyer" and "very professional" don't necessarily convince someone trying to decide who to trust with their kids and their future.`,
             reality: `The difference is in the story. One review says "very professional." Another says "I called them the morning my husband moved out, and I didn't feel so alone after that." One confirms competence; the other creates immediate emotional connection. Most firms lack the latter.`,
             chainImpact: "Whether reading reviews on Google or looking at trust badges and testimonials on your website, generic validation leaves the consumer stuck. Specific stories create connection.",
             diagnostic: "Pick any review from your Google profile. Does it give someone a reason to choose you over the attorney listed above and below you?",
@@ -103,7 +110,8 @@
             name: "Familiarity Gap",
             icon: Users,
             question: "Can they experience working with you before they call?",
-            symptom: `The consultation is not where the relationship starts. By the time someone books, they've already chosen. The consult is a confirmation, not an audition. If there's no video to watch beforehand, you may never make the shortlist.`,
+            quote: "I'm a stranger when they call",
+            blindSpot: `The consultation is not where the relationship starts. By the time someone books, they've already chosen. The consult is a confirmation, not an audition. If there's no video to watch beforehand, you may never make the shortlist.`,
             reality: `The consumer can't hear your voice, see how you explain complicated legal concepts, or get any feel for your empathy. Without video to build a parasocial relationship during their research phase, you are just another name on a list.`,
             chainImpact: "They have to find you first. But once they do, video is the ultimate closer. By using video to show empathy during the research phase, you create a parasocial relationship. The prospect walks into the consult already feeling like they know you.",
             diagnostic: "Can a prospect watch 5 minutes of you speaking, explaining, and showing empathy before they ever pick up the phone?",
@@ -113,23 +121,79 @@
           }
         ];
 
+        // --- NEW: 20-Question ScoreApp Style Assessment ---
+        const quizQuestions = [
+          // Gap 1: Visibility
+          { id: 1, gapId: 1, q: "If you look at a local search grid for your firm, what happens to your rankings just 3 to 5 miles away from your office?", options: [{ text: "We drop off the map completely (Invisible)", score: 0 }, { text: "We start fading to page 2 or 3", score: 1 }, { text: "We dominate the top 3 consistently", score: 2 }] },
+          { id: 2, gapId: 1, q: "Are you relying entirely on referrals and word-of-mouth for new cases?", options: [{ text: "Yes, almost 100%", score: 0 }, { text: "Mostly, but we get some web traffic", score: 1 }, { text: "No, we have predictable, inbound search traffic", score: 2 }] },
+          { id: 3, gapId: 1, q: "How wide is your true local search footprint?", options: [{ text: "I don't know", score: 0 }, { text: "Only the immediate area around our office", score: 1 }, { text: "We consistently rank across the entire metro/county", score: 2 }] },
+          { id: 4, gapId: 1, q: "When you review your metrics, do you get calls from people who didn't search your specific firm name?", options: [{ text: "Rarely / Never", score: 0 }, { text: "Sometimes", score: 1 }, { text: "Frequently", score: 2 }] },
+          // Gap 2: Positioning
+          { id: 5, gapId: 2, q: "The Logo Swap Test: If a competitor put their logo on your site and removed your attorney profile pages, would the website still work perfectly for them?", options: [{ text: "Yes, it would basically look and read like their firm", score: 0 }, { text: "Mostly, though a few minor details would be off", score: 1 }, { text: "No, the site's message and feel would make zero sense for them", score: 2 }] },
+          { id: 6, gapId: 2, q: "What is the main hero image on your homepage?", options: [{ text: "City skyline, gavel, or scales of justice", score: 0 }, { text: "A generic team photo by a building", score: 1 }, { text: "Custom imagery reflecting our specific client approach", score: 2 }] },
+          { id: 7, gapId: 2, q: "How many practice areas do you actively promote on your homepage?", options: [{ text: "Everything (Criminal, PI, Family, Business, etc.)", score: 0 }, { text: "3-4 different areas", score: 1 }, { text: "Only Family Law / Divorce", score: 2 }] },
+          { id: 8, gapId: 2, q: "What makes your firm different?", options: [{ text: "'Our years of experience and dedication'", score: 0 }, { text: "'Our aggressive representation'", score: 1 }, { text: "A highly specific, unique client-centric philosophy", score: 2 }] },
+          // Gap 3: Message
+          { id: 9, gapId: 3, q: "Does your homepage read like a resume or a lifeline?", options: [{ text: "Mostly a resume of our awards and experience", score: 0 }, { text: "A mix of both", score: 1 }, { text: "A pure lifeline for someone in crisis", score: 2 }] },
+          { id: 10, gapId: 3, q: "What pronoun is used most heavily on your homepage?", options: [{ text: "'We / Our / The Firm'", score: 0 }, { text: "An equal mix", score: 1 }, { text: "'You / Your'", score: 2 }] },
+          { id: 11, gapId: 3, q: "Does your website specifically name the emotional fears of your clients?", options: [{ text: "No, it just lists legal services", score: 0 }, { text: "A little bit", score: 1 }, { text: "Yes, directly and empathetically", score: 2 }] },
+          { id: 12, gapId: 3, q: "If a prospect is panicking at 2 AM, will your website calm them down?", options: [{ text: "Probably not", score: 0 }, { text: "Maybe", score: 1 }, { text: "Absolutely", score: 2 }] },
+          // Gap 4: Trust
+          { id: 13, gapId: 4, q: "How many Google reviews do you have compared to your closest competitor?", options: [{ text: "Significantly fewer", score: 0 }, { text: "About the same", score: 1 }, { text: "Significantly more", score: 2 }] },
+          { id: 14, gapId: 4, q: "What do your typical reviews actually say?", options: [{ text: "'Great lawyer' or 'Very professional'", score: 0 }, { text: "A brief mention of their case outcome", score: 1 }, { text: "Detailed, emotional stories of survival and help", score: 2 }] },
+          { id: 15, gapId: 4, q: "Do you display client stories or testimonials natively on your website?", options: [{ text: "No", score: 0 }, { text: "Yes, but buried on a sub-page", score: 1 }, { text: "Yes, front and center", score: 2 }] },
+          { id: 16, gapId: 4, q: "If someone reads your reviews, do they feel a connection to past clients?", options: [{ text: "No, they just see a star rating", score: 0 }, { text: "Maybe", score: 1 }, { text: "Yes, they see themselves in those reviews", score: 2 }] },
+          // Gap 5: Familiarity
+          { id: 17, gapId: 5, q: "How often do prospects feel like they 'already know you' before the consult?", options: [{ text: "Never / Rarely", score: 0 }, { text: "Sometimes", score: 1 }, { text: "Frequently", score: 2 }] },
+          { id: 18, gapId: 5, q: "Do you use video on your website to explain your process and show empathy?", options: [{ text: "No video at all", score: 0 }, { text: "One generic firm overview video", score: 1 }, { text: "Yes, multiple targeted videos", score: 2 }] },
+          { id: 19, gapId: 5, q: "Does your consultation feel like an audition or a confirmation?", options: [{ text: "A hard audition (I have to sell myself)", score: 0 }, { text: "A mix", score: 1 }, { text: "A confirmation (They just want to know I can take their case)", score: 2 }] },
+          { id: 20, gapId: 5, q: "Can a prospect spend 5 minutes 'experiencing' your personality online without calling?", options: [{ text: "No, they just read text", score: 0 }, { text: "Maybe through a blog post", score: 1 }, { text: "Yes, through video or rich media", score: 2 }] }
+        ];
+
         function App() {
           const [activeTab, setActiveTab] = useState('flowchart');
           const [activeGap, setActiveGap] = useState(gapsData[0]);
-          const [assessmentScores, setAssessmentScores] = useState({});
-          const [assessmentComplete, setAssessmentComplete] = useState(false);
+          
+          // --- ScoreApp Quiz State ---
+          const [quizStarted, setQuizStarted] = useState(false);
+          const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
+          const [quizAnswers, setQuizAnswers] = useState({});
+          const [quizFinished, setQuizFinished] = useState(false);
 
-          const handleAssessmentChange = (gapId, value) => {
-            setAssessmentScores(prev => ({ ...prev, [gapId]: value }));
+          const handleAnswer = (qId, score) => {
+            const newAnswers = { ...quizAnswers, [qId]: score };
+            setQuizAnswers(newAnswers);
+            
+            // Auto-advance like ScoreApp
+            setTimeout(() => {
+                if (currentQuestionIdx < quizQuestions.length - 1) {
+                    setCurrentQuestionIdx(currentQuestionIdx + 1);
+                } else {
+                    setQuizFinished(true);
+                }
+            }, 300); // 300ms delay feels responsive but natural
           };
 
-          const calculateResults = () => {
-            setAssessmentComplete(true);
+          const resetQuiz = () => {
+              setQuizStarted(false);
+              setCurrentQuestionIdx(0);
+              setQuizAnswers({});
+              setQuizFinished(false);
           };
 
-          const resetAssessment = () => {
-            setAssessmentScores({});
-            setAssessmentComplete(false);
+          const calculateGapScore = (gapId) => {
+              let score = 0;
+              quizQuestions.filter(q => q.gapId === gapId).forEach(q => {
+                  if (quizAnswers[q.id] !== undefined) {
+                      score += quizAnswers[q.id];
+                  }
+              });
+              return score; // Max 8 per gap
+          };
+
+          const getTotalScorePercentage = () => {
+              const totalScore = Object.values(quizAnswers).reduce((a, b) => a + b, 0);
+              return Math.round((totalScore / 40) * 100); // 40 is max possible score (20 qs * 2 pts)
           };
 
           return (
@@ -216,27 +280,10 @@
                           </div>
                           
                           {/* Connection to unified funnel */}
-                          <div className="flex flex-col items-center flex-grow w-full">
-                             <div className="w-[2px] bg-slate-300 flex-grow min-h-[30px]"></div>
-                             <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
-                          </div>
-                        </div>
-
-                        {/* Source 2: Direct / Paid */}
-                        <div className="flex flex-col items-center h-full w-full">
-                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
-                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
-                              <Radio size={20} />
-                            </div>
-                            <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Paid & Direct</h3>
-                            <p className="text-sm text-slate-500">Ads, Radio, Billboards</p>
-                          </div>
-                          
-                          {/* Connection to unified funnel */}
-                          <div className="flex flex-col items-center flex-grow w-full">
-                             <div className="w-[2px] border-l-2 border-dashed border-slate-300 h-12"></div>
+                          <div className="flex flex-col items-center flex-grow w-full mt-2">
+                             <div className="w-0 border-l-2 border-dashed border-slate-300 h-10"></div>
                              <div className="bg-slate-50 text-xs px-3 py-1.5 rounded-full text-slate-500 font-medium border border-slate-200 z-10 whitespace-nowrap shadow-sm">Bypasses Visibility</div>
-                             <div className="w-[2px] border-l-2 border-dashed border-slate-300 flex-grow min-h-[30px]"></div>
+                             <div className="w-0 border-l-2 border-dashed border-slate-300 flex-grow min-h-[30px]"></div>
                              <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
                           </div>
                         </div>
@@ -252,10 +299,10 @@
                           </div>
                           
                           {/* Connection to unified funnel */}
-                          <div className="flex flex-col items-center flex-grow w-full">
-                             <div className="w-[2px] border-l-2 border-dashed border-green-300 h-12"></div>
+                          <div className="flex flex-col items-center flex-grow w-full mt-2">
+                             <div className="w-0 border-l-2 border-dashed border-green-300 h-10"></div>
                              <div className="bg-green-50 text-xs px-3 py-1.5 rounded-full text-green-700 font-bold border border-green-200 shadow-sm flex items-center gap-1 z-10 whitespace-nowrap"><Star size={12}/> Borrowed Trust</div>
-                             <div className="w-[2px] border-l-2 border-dashed border-green-300 flex-grow min-h-[30px]"></div>
+                             <div className="w-0 border-l-2 border-dashed border-green-300 flex-grow min-h-[30px]"></div>
                              <div className="text-green-500 -mt-1"><ArrowDown size={20} /></div>
                           </div>
                         </div>
@@ -264,8 +311,8 @@
 
 
                       {/* --- PHASE 2: THE EVALUATION GAUNTLET --- */}
-                      <div className="bg-slate-100 rounded-3xl p-6 md:p-8 border border-slate-200 relative shadow-inner mb-0">
-                        <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm">
+                      <div className="bg-slate-100 rounded-3xl p-6 md:p-8 border border-slate-200 relative shadow-inner mb-0 mt-8">
+                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm z-20 whitespace-nowrap">
                           Phase 2: The Evaluation
                         </div>
                         
@@ -312,7 +359,7 @@
                         <div className="w-[2px] bg-slate-300 h-10"></div>
                         <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
 
-                        <div className="bg-rose-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-rose-800 w-full max-w-4xl mt-6">
+                        <div className="bg-rose-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-rose-800 w-full max-w-4xl mt-10">
                           {/* Wrapper for the background icon to prevent badge clipping */}
                           <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
                             <div className="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4">
@@ -320,7 +367,7 @@
                             </div>
                           </div>
                           
-                          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-rose-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
+                          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
                             Phase 3: The Closer
                           </div>
                           
@@ -437,7 +484,12 @@
                               Diagnosis {activeGap.id}
                             </span>
                             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">{activeGap.name}</h2>
-                            <p className="text-xl font-medium text-slate-700">"{activeGap.question}"</p>
+                            <p className="text-xl font-medium text-slate-700 mb-6">"{activeGap.question}"</p>
+                            
+                            <div className="inline-block bg-white/70 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-slate-200/50">
+                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">The Symptom</p>
+                              <p className="font-semibold text-slate-900 italic">"{activeGap.quote}"</p>
+                            </div>
                           </div>
                         </div>
 
@@ -448,7 +500,7 @@
                             <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
                               <AlertCircle size={18} className="text-slate-400" /> What The Attorney Doesn't Realize
                             </h4>
-                            <p className="text-slate-700 leading-relaxed text-lg">{activeGap.symptom}</p>
+                            <p className="text-slate-700 leading-relaxed text-lg">{activeGap.blindSpot}</p>
                           </div>
                           
                           {/* Reality */}
@@ -499,98 +551,185 @@
                   </div>
                 )}
 
-                {/* --- Diagnostic Assessment Tab --- */}
+                {/* --- ScoreApp Style Diagnostic Assessment Tab --- */}
                 {activeTab === 'assessment' && (
-                  <div className="max-w-3xl mx-auto">
-                    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12">
-                      <h2 className="text-3xl font-bold mb-2">Firm Diagnostic Assessment</h2>
-                      <p className="text-slate-500 mb-8 pb-8 border-b border-slate-100">Answer these 5 questions honestly to see where your marketing is breaking down.</p>
+                  <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
+                    
+                    {/* START SCREEN */}
+                    {!quizStarted && !quizFinished && (
+                      <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-10 md:p-16 text-center">
+                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-100 text-slate-900 mb-6">
+                          <ClipboardList size={40} />
+                        </div>
+                        <h2 className="text-4xl font-bold mb-4 text-slate-900">The 5-Gap Marketing Audit</h2>
+                        <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+                          Take this 2-minute, 20-question audit to discover exactly where your firm is leaking high-value cases to your competitors.
+                        </p>
+                        <div className="space-y-4 mb-10 max-w-md mx-auto text-left">
+                          <div className="flex items-center gap-3 text-slate-700 font-medium bg-slate-50 p-3 rounded-xl border border-slate-100"><Check className="text-green-500" size={20}/> Uncover your specific blind spots</div>
+                          <div className="flex items-center gap-3 text-slate-700 font-medium bg-slate-50 p-3 rounded-xl border border-slate-100"><Check className="text-green-500" size={20}/> Get a personalized marketing health score</div>
+                          <div className="flex items-center gap-3 text-slate-700 font-medium bg-slate-50 p-3 rounded-xl border border-slate-100"><Check className="text-green-500" size={20}/> See which gaps to fix first</div>
+                        </div>
+                        <button 
+                          onClick={() => setQuizStarted(true)}
+                          className="bg-slate-900 text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-slate-800 transition-all hover:scale-105 active:scale-95 shadow-lg flex items-center gap-2 mx-auto"
+                        >
+                          Start The Audit <ChevronRight size={20} />
+                        </button>
+                      </div>
+                    )}
 
-                      {!assessmentComplete ? (
-                        <div className="space-y-10">
-                          {gapsData.map((gap, index) => (
-                            <div key={gap.id} className="space-y-4">
-                              <div className="flex gap-4">
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center font-bold">
-                                  {index + 1}
-                                </div>
-                                <div>
-                                  <h3 className="text-lg font-bold text-slate-800 mb-1">{gap.name}</h3>
-                                  <p className="text-slate-600 font-medium mb-4">{gap.diagnostic}</p>
-                                  <div className="flex flex-col sm:flex-row gap-3">
-                                    <button 
-                                      onClick={() => handleAssessmentChange(gap.id, 'pass')}
-                                      className={`px-4 py-3 rounded-xl border font-medium transition-all text-left sm:text-center ${assessmentScores[gap.id] === 'pass' ? 'bg-green-50 border-green-500 text-green-700 ring-1 ring-green-500' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}
-                                    >
-                                      Yes, I pass this easily
-                                    </button>
-                                    <button 
-                                      onClick={() => handleAssessmentChange(gap.id, 'fail')}
-                                      className={`px-4 py-3 rounded-xl border font-medium transition-all text-left sm:text-center ${assessmentScores[gap.id] === 'fail' ? 'bg-red-50 border-red-500 text-red-700 ring-1 ring-red-500' : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'}`}
-                                    >
-                                      No, I fail this test
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
-
-                          <div className="pt-8 border-t border-slate-100">
-                            <button 
-                              onClick={calculateResults}
-                              disabled={Object.keys(assessmentScores).length < 5}
-                              className="w-full bg-slate-900 text-white py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                              Reveal Diagnosis
-                            </button>
-                            {Object.keys(assessmentScores).length < 5 && (
-                              <p className="text-center text-sm text-slate-500 mt-3">Please answer all 5 questions to continue.</p>
+                    {/* QUESTION SCREEN */}
+                    {quizStarted && !quizFinished && (
+                      <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
+                        {/* Progress Bar & Navigation */}
+                        <div className="mb-8">
+                          <div className="flex items-center justify-between mb-4">
+                            {currentQuestionIdx > 0 ? (
+                              <button 
+                                onClick={() => setCurrentQuestionIdx(prev => prev - 1)}
+                                className="flex items-center gap-1 text-slate-500 hover:text-slate-900 font-bold text-sm transition-colors uppercase tracking-wider"
+                              >
+                                <ChevronLeft size={18} /> Back
+                              </button>
+                            ) : (
+                              <div className="w-[72px]"></div> /* Placeholder to keep centering balanced */
                             )}
+                            <span className="text-sm font-bold text-slate-400 uppercase tracking-wider">
+                              Question {currentQuestionIdx + 1} of 20
+                            </span>
+                            <span className="text-sm font-bold text-slate-400 uppercase tracking-wider w-[72px] text-right">
+                              {Math.round(((currentQuestionIdx) / 20) * 100)}%
+                            </span>
+                          </div>
+                          <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                            <div 
+                              className="bg-slate-900 h-full rounded-full transition-all duration-500 ease-out"
+                              style={{ width: `${((currentQuestionIdx) / 20) * 100}%` }}
+                            ></div>
                           </div>
                         </div>
-                      ) : (
-                        <div className="space-y-8 animate-in fade-in duration-500">
-                          <div className="bg-slate-50 rounded-xl p-8 text-center border border-slate-200">
-                            <h3 className="text-2xl font-bold mb-2">Your Diagnostic Results</h3>
-                            <p className="text-slate-600">Here is where your ecosystem is breaking down.</p>
-                          </div>
 
-                          <div className="space-y-4">
+                        {/* Question Content */}
+                        <div className="mb-10 min-h-[120px] flex items-center">
+                          <h3 className="text-2xl md:text-3xl font-bold text-slate-900 leading-snug">
+                            {quizQuestions[currentQuestionIdx].q}
+                          </h3>
+                        </div>
+
+                        {/* Options */}
+                        <div className="space-y-3">
+                          {quizQuestions[currentQuestionIdx].options.map((option, idx) => {
+                            const isSelected = quizAnswers[quizQuestions[currentQuestionIdx].id] === option.score;
+                            return (
+                              <button
+                                key={idx}
+                                onClick={() => handleAnswer(quizQuestions[currentQuestionIdx].id, option.score)}
+                                className={`w-full text-left p-5 rounded-2xl border-2 transition-all duration-200 flex items-center gap-4 group
+                                  ${isSelected 
+                                    ? 'border-slate-900 bg-slate-50 ring-4 ring-slate-100' 
+                                    : 'border-slate-200 hover:border-slate-400 hover:bg-slate-50'
+                                  }`}
+                              >
+                                <div className={`w-6 h-6 rounded-full border-2 flex-shrink-0 flex items-center justify-center transition-colors
+                                  ${isSelected ? 'border-slate-900 bg-slate-900' : 'border-slate-300 group-hover:border-slate-500'}`}
+                                >
+                                  {isSelected && <div className="w-2 h-2 bg-white rounded-full"></div>}
+                                </div>
+                                <span className={`text-lg font-medium ${isSelected ? 'text-slate-900' : 'text-slate-700'}`}>
+                                  {option.text}
+                                </span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* RESULTS DASHBOARD */}
+                    {quizFinished && (
+                      <div className="space-y-8 animate-in slide-in-from-bottom-8 duration-700">
+                        
+                        {/* Master Score Banner */}
+                        <div className="bg-slate-900 rounded-3xl p-10 text-center relative overflow-hidden text-white shadow-xl">
+                          <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-400 via-purple-400 to-rose-400"></div>
+                          <h2 className="text-3xl font-bold mb-2">Your Marketing Health Score</h2>
+                          <p className="text-slate-400 mb-8 text-lg">Based on your 5-Gap Framework analysis</p>
+                          
+                          <div className="inline-flex items-center justify-center w-40 h-40 rounded-full border-8 border-slate-800 relative mb-4">
+                            <svg className="absolute inset-0 w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                              <circle 
+                                cx="50" cy="50" r="46" fill="transparent" stroke="currentColor" 
+                                strokeWidth="8" className="text-slate-800"
+                              />
+                              <circle 
+                                cx="50" cy="50" r="46" fill="transparent" stroke="currentColor" 
+                                strokeWidth="8" className={getTotalScorePercentage() >= 70 ? 'text-green-500' : getTotalScorePercentage() >= 40 ? 'text-yellow-500' : 'text-red-500'}
+                                strokeDasharray={`${getTotalScorePercentage() * 2.89} 289`}
+                                strokeLinecap="round"
+                              />
+                            </svg>
+                            <span className="text-5xl font-black">{getTotalScorePercentage()}%</span>
+                          </div>
+                          
+                          <p className="text-xl font-medium mt-4 max-w-2xl mx-auto">
+                            {getTotalScorePercentage() >= 70 ? "Your foundation is solid, but closing the remaining gaps will accelerate growth." : 
+                             getTotalScorePercentage() >= 40 ? "You have significant leaks in your chain. You are losing cases to inferior attorneys." : 
+                             "Critical condition. Your marketing is acting as a wall, actively preventing ideal clients from choosing you."}
+                          </p>
+                        </div>
+
+                        {/* Detailed Gap Breakdown */}
+                        <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-10">
+                          <h3 className="text-2xl font-bold mb-8 text-slate-900 text-center">Gap-by-Gap Breakdown</h3>
+                          
+                          <div className="space-y-6">
                             {gapsData.map((gap) => {
-                              const isClosed = assessmentScores[gap.id] === 'pass';
+                              const score = calculateGapScore(gap.id);
+                              // 0-4 points = Open/Red, 5-6 points = Partial/Yellow, 7-8 points = Closed/Green
+                              const status = score >= 7 ? 'Closed' : score >= 5 ? 'Partial Leak' : 'Open (Critical)';
+                              const statusColor = score >= 7 ? 'text-green-600 bg-green-50 border-green-200' : 
+                                                  score >= 5 ? 'text-yellow-700 bg-yellow-50 border-yellow-200' : 
+                                                  'text-red-700 bg-red-50 border-red-200';
+                              const barColor = score >= 7 ? 'bg-green-500' : score >= 5 ? 'bg-yellow-500' : 'bg-red-500';
+
                               return (
-                                <div key={gap.id} className={`p-6 rounded-xl border flex gap-4 ${isClosed ? 'bg-white border-green-200' : 'bg-red-50 border-red-200'}`}>
-                                  <div className="flex-shrink-0 mt-1">
-                                    {isClosed ? <CheckCircle2 className="text-green-500" /> : <AlertCircle className="text-red-500" />}
+                                <div key={gap.id} className={`p-6 rounded-2xl border-2 flex flex-col md:flex-row gap-6 items-start md:items-center ${statusColor}`}>
+                                  <div className="flex-shrink-0 bg-white p-3 rounded-xl shadow-sm">
+                                    <gap.icon size={28} className={score >= 7 ? 'text-green-600' : score >= 5 ? 'text-yellow-600' : 'text-red-600'} />
                                   </div>
-                                  <div>
-                                    <h4 className={`font-bold text-lg mb-1 ${isClosed ? 'text-slate-800' : 'text-red-800'}`}>
-                                      {gap.name}: {isClosed ? 'Closed' : 'Open'}
-                                    </h4>
-                                    <p className={isClosed ? 'text-slate-600' : 'text-red-700 opacity-90'}>
-                                      {isClosed 
-                                        ? "Consumers find validation at this stage." 
-                                        : `You are losing prospects here. ${gap.fixType === 'Quick Fix (Firm Asset)' ? 'This is a firm asset issue that can be fixed relatively quickly.' : 'This is an external presence issue that requires compounding effort to build.'}`
-                                      }
+                                  
+                                  <div className="flex-grow w-full">
+                                    <div className="flex justify-between items-end mb-2">
+                                      <h4 className="font-bold text-lg">{gap.name}</h4>
+                                      <span className="font-bold text-sm uppercase tracking-wider">{status}</span>
+                                    </div>
+                                    <div className="w-full bg-white/50 h-3 rounded-full overflow-hidden border border-black/5">
+                                      <div className={`${barColor} h-full rounded-full`} style={{ width: `${(score / 8) * 100}%` }}></div>
+                                    </div>
+                                    <p className="mt-3 text-sm font-medium opacity-90">
+                                      {score >= 7 ? "Strong performance. This gap is not costing you clients." : 
+                                       score >= 5 ? "You are surviving here, but a competitor could easily steal market share by doing this slightly better." : 
+                                       `Fix this immediately. ${gap.reality}`}
                                     </p>
                                   </div>
                                 </div>
                               )
                             })}
                           </div>
-
-                          <div className="pt-8">
+                          
+                          <div className="mt-10 text-center">
                             <button 
-                              onClick={resetAssessment}
-                              className="text-slate-600 font-semibold hover:text-slate-900 flex items-center gap-2 justify-center w-full"
+                              onClick={resetQuiz}
+                              className="text-slate-500 font-bold hover:text-slate-900 transition-colors uppercase tracking-wider text-sm"
                             >
-                              Reset Assessment
+                              Retake Assessment
                             </button>
                           </div>
                         </div>
-                      )}
-                    </div>
+
+                      </div>
+                    )}
                   </div>
                 )}
               </main>
