@@ -131,7 +131,7 @@
           // Gap 2: Positioning
           { id: 5, gapId: 2, q: "The Logo Swap Test: If a competitor put their logo on your site and removed your attorney profile pages, would the website still work perfectly for them?", options: [{ text: "Yes, it would basically look and read like their firm", score: 0 }, { text: "Mostly, though a few minor details would be off", score: 1 }, { text: "No, the site's message and feel would make zero sense for them", score: 2 }] },
           { id: 6, gapId: 2, q: "What is the main hero image on your homepage?", options: [{ text: "City skyline, gavel, or scales of justice", score: 0 }, { text: "A generic team photo by a building", score: 1 }, { text: "Custom imagery reflecting our specific client approach", score: 2 }] },
-          { id: 7, gapId: 2, q: "How many practice areas do you actively promote on your homepage?", options: [{ text: "Everything (Criminal, PI, Family, Business, etc.)", score: 0 }, { text: "3-4 different areas", score: 1 }, { text: "Only Family Law / Divorce", score: 2 }] },
+          { id: 7, gapId: 2, q: "What is the dominant color scheme and visual vibe of your website?", options: [{ text: "Navy blue, dark red, or 'lawyer gold'", score: 0 }, { text: "Neutral, safe corporate colors", score: 1 }, { text: "A distinct brand palette that avoids typical legal cliches", score: 2 }] },
           { id: 8, gapId: 2, q: "What makes your firm different?", options: [{ text: "'Our years of experience and dedication'", score: 0 }, { text: "'Our aggressive representation'", score: 1 }, { text: "A highly specific, unique client-centric philosophy", score: 2 }] },
           // Gap 3: Message
           { id: 9, gapId: 3, q: "Does your homepage read like a resume or a lifeline?", options: [{ text: "Mostly a resume of our awards and experience", score: 0 }, { text: "A mix of both", score: 1 }, { text: "A pure lifeline for someone in crisis", score: 2 }] },
@@ -159,6 +159,11 @@
           const [currentQuestionIdx, setCurrentQuestionIdx] = useState(0);
           const [quizAnswers, setQuizAnswers] = useState({});
           const [quizFinished, setQuizFinished] = useState(false);
+          
+          // --- Lead Capture State ---
+          const [showLeadForm, setShowLeadForm] = useState(false);
+          const [email, setEmail] = useState('');
+          const [isSubmitting, setIsSubmitting] = useState(false);
 
           const handleAnswer = (qId, score) => {
             const newAnswers = { ...quizAnswers, [qId]: score };
@@ -169,9 +174,22 @@
                 if (currentQuestionIdx < quizQuestions.length - 1) {
                     setCurrentQuestionIdx(currentQuestionIdx + 1);
                 } else {
-                    setQuizFinished(true);
+                    setShowLeadForm(true); // Trigger lead form instead of immediate results
                 }
             }, 300); // 300ms delay feels responsive but natural
+          };
+
+          const handleEmailSubmit = (e) => {
+            e.preventDefault();
+            if (!email) return;
+            setIsSubmitting(true);
+            
+            // Simulate an API call (Here is where you'd send the email + score to your CRM/Zapier)
+            setTimeout(() => {
+              setIsSubmitting(false);
+              setShowLeadForm(false);
+              setQuizFinished(true);
+            }, 1000);
           };
 
           const resetQuiz = () => {
@@ -179,6 +197,8 @@
               setCurrentQuestionIdx(0);
               setQuizAnswers({});
               setQuizFinished(false);
+              setShowLeadForm(false);
+              setEmail('');
           };
 
           const calculateGapScore = (gapId) => {
@@ -556,7 +576,7 @@
                   <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
                     
                     {/* START SCREEN */}
-                    {!quizStarted && !quizFinished && (
+                    {!quizStarted && !quizFinished && !showLeadForm && (
                       <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-10 md:p-16 text-center">
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-slate-100 text-slate-900 mb-6">
                           <ClipboardList size={40} />
@@ -580,7 +600,7 @@
                     )}
 
                     {/* QUESTION SCREEN */}
-                    {quizStarted && !quizFinished && (
+                    {quizStarted && !showLeadForm && !quizFinished && (
                       <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
                         {/* Progress Bar & Navigation */}
                         <div className="mb-8">
@@ -643,6 +663,44 @@
                             );
                           })}
                         </div>
+                      </div>
+                    )}
+
+                    {/* LEAD CAPTURE SCREEN */}
+                    {showLeadForm && !quizFinished && (
+                      <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-10 md:p-16 text-center max-w-2xl mx-auto animate-in fade-in zoom-in-95 duration-500">
+                        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-blue-50 text-blue-600 mb-6 shadow-inner">
+                          <ClipboardList size={32} />
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900 tracking-tight">Your Audit is Ready.</h2>
+                        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+                          Enter your email below to unlock your personalized Marketing Health Score and get the full 5-Gap diagnostic breakdown sent straight to your inbox.
+                        </p>
+                        
+                        <form onSubmit={handleEmailSubmit} className="space-y-4 max-w-sm mx-auto">
+                          <input 
+                            type="email" 
+                            required 
+                            placeholder="Enter your email address" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 focus:border-blue-500 focus:ring-0 text-lg outline-none transition-colors text-center"
+                          />
+                          <button 
+                            type="submit" 
+                            disabled={isSubmitting}
+                            className="w-full bg-blue-600 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-blue-700 transition-all flex items-center justify-center gap-2 disabled:opacity-70 shadow-md"
+                          >
+                            {isSubmitting ? 'Generating Report...' : 'Reveal My Score'} <ArrowRight size={20} />
+                          </button>
+                        </form>
+                        
+                        <button 
+                          onClick={() => { setShowLeadForm(false); setQuizFinished(true); }}
+                          className="mt-8 text-sm text-slate-400 hover:text-slate-600 font-medium transition-colors underline underline-offset-4"
+                        >
+                          Skip and view results now
+                        </button>
                       </div>
                     )}
 
