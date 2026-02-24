@@ -54,9 +54,9 @@
             name: "Visibility Gap",
             icon: MapPin,
             question: "Can they find you?",
-            quote: "I'm not showing up",
-            blindSpot: `Searching from your office puts you on top of your own pin. Of course you show up. But local search is driven by proximity, and most firms only appear within a 5 to 8 mile radius of their address. Outside that circle, you don't exist. The question isn't whether you rank. It's how far that ranking actually reaches.`,
-            reality: `Your visibility is likely just a small circle around your physical office. While you rank #1 from your desk, a highly qualified lead searching from their home ten minutes away sees your competitors instead.`,
+            quote: "I see us when I search, but I'm not sure it's translating into inquiries.",
+            blindSpot: `A ranking report gives you a pin. One number, from one location. It says "#2 for divorce attorney near me" and you assume that's the answer. But "near me" changes depending on where "me" is standing. A visibility report gives you a footprint. It shows you the shape of your reach, where you're dominant, where you fade, and where you're completely invisible. Most firms have never seen their footprint. They've only ever seen the pin.`,
+            reality: `Your visibility isn't a number. It's a shape. You're likely #1 in a tight circle around your office and invisible a few miles out in every direction. That means qualified prospects in your own market are searching, finding your competitors, and calling them instead. Not because those firms are better. Because those firms are closer to where that person is standing when they search.`,
             chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
             diagnostic: "If someone searched 'divorce attorney near me' from neighborhoods near your address, how many of those searches would show you in the top three?",
             fixType: "Quick Fix (Firm Asset)",
@@ -96,10 +96,10 @@
             name: "Trust Gap",
             icon: Star,
             question: "Are you externally validated for a decision this big?",
-            quote: "I'm unproven for a decision this big",
-            blindSpot: `A 4.8-star average is not the finish line. Reviews that say "great lawyer" and "very professional" don't necessarily convince someone trying to decide who to trust with their kids and their future.`,
-            reality: `The difference is in the story. One review says "very professional." Another says "I called them the morning my husband moved out, and I didn't feel so alone after that." One confirms competence; the other creates immediate emotional connection. Most firms lack the latter.`,
-            chainImpact: "Whether reading reviews on Google or looking at trust badges and testimonials on your website, generic validation leaves the consumer stuck. Specific stories create connection.",
+            quote: "I have strong credentials, but prospects still treat every consultation like an interview.",
+            blindSpot: `Every attorney on the page has similar badges. Super Lawyers, Avvo, "Best Of" awards. Your prospect doesn't know what they mean, doesn't know if they were earned or purchased, and sees the same row of logos on every site they visit. Badges confirm you're qualified. Reviews are what actually help someone choose you. And only one of those helps you rank on Google.`,
+            reality: `One review says "very professional." Another says "I called them the morning my husband moved out, and I didn't feel so alone after that." The first confirms competence. The second makes someone pick up the phone. Most firms have plenty of the first and almost none of the second.`,
+            chainImpact: "Your badges speak to other attorneys. Your reviews speak to the person trying to decide who to trust with their kids and their future. When every firm on the page has the same credentials, the one with reviews that tell real stories is the one that gets the call.",
             diagnostic: "Pick any review from your Google profile. Does it give someone a reason to choose you over the attorney listed above and below you?",
             fixType: "Compound/Long-term (External & Internal)",
             color: "bg-pink-100 text-pink-800 border-pink-300",
@@ -292,7 +292,7 @@
                     <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-1">
                       <MapPin size={18} /> Gap 1: Visibility
                     </h4>
-                    <p className="text-xs font-medium text-blue-600 italic mb-2">They assume searching from the office reflects reality.</p>
+                    <p className="text-xs font-medium text-blue-600 italic mb-2">A ranking report gives you a pin. Your visibility is a footprint.</p>
                     <div className="text-xs text-left space-y-2 mt-3">
                       <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Missing = Lost.</span></div>
                       <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Found = Proceeds down.</span></div>
@@ -361,8 +361,8 @@
                     <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-1">
                       <Layout size={18} /> Gap 2: Positioning
                     </h4>
-                    <p className="text-xs font-medium text-indigo-600 italic mb-3">They think custom colors = unique positioning.</p>
-                    <p className="text-sm text-slate-600">Do you visually stand out from the other clinical firm websites?</p>
+                    <p className="text-xs font-medium text-indigo-600 italic mb-3">Your site has your colors, your photos.</p>
+                    <p className="text-sm text-slate-600">But if a competitor swapped their logo and attorney profile page onto it, does it still play?</p>
                   </div>
 
                   {/* Gap 3 */}
@@ -370,8 +370,8 @@
                     <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-1">
                       <MessageSquare size={18} /> Gap 3: Message
                     </h4>
-                    <p className="text-xs font-medium text-purple-600 italic mb-3">They don't realize their site reads like a textbook.</p>
-                    <p className="text-sm text-slate-600">Does your website copy speak to their fear and pain directly?</p>
+                    <p className="text-xs font-medium text-purple-600 italic mb-3">Your site explains the process.</p>
+                    <p className="text-sm text-slate-600">But is there anything on it that makes someone feel like you understand what they're going through, not just the legal side of it?</p>
                   </div>
 
                   {/* Gap 4 */}
@@ -380,8 +380,8 @@
                     <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-1">
                       <Star size={18} /> Gap 4: Trust
                     </h4>
-                    <p className="text-xs font-medium text-pink-600 italic mb-3">They assume a 5-star average is all it takes.</p>
-                    <p className="text-sm text-slate-600">Do your Google reviews and website trust badges validate your claims?</p>
+                    <p className="text-xs font-medium text-pink-600 italic mb-3">Your badges confirm you're qualified.</p>
+                    <p className="text-sm text-slate-600">Your reviews are what actually help someone choose you. And only one of those helps you rank on Google.</p>
                   </div>
 
                 </div>
@@ -415,7 +415,7 @@
                           <Star size={14} className="text-pink-400" /> The Ultimate Trust Signal
                         </span>
                       </div>
-                      <p className="text-sm font-medium text-rose-300 italic mb-3">They assume the "selling" starts at the consultation.</p>
+                      <p className="text-sm font-medium text-rose-300 italic mb-3">The consultation shouldn't be the first time a prospect hears your voice or sees your face.</p>
                       <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
                         They evaluated you and stuck around. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? Engaging video doesn't just build familiarity—it builds a parasocial relationship that supersedes the need for external reviews.
                       </p>
