@@ -81,11 +81,11 @@
             id: 3,
             name: "Message Gap",
             icon: MessageSquare,
-            question: `Does your website sound like it was written for someone Googling at 2am after the worst conversation of their life? Or does it sound like it was written for a conference booth?`,
-            quote: "My website feels cold/clinical",
-            blindSpot: `A website that leads with credentials, awards, and "aggressive representation" isn't speaking to the person reading it. Someone Googling at 2am after the worst conversation of their life doesn't need a brochure. They need to know someone understands what they're going through.`,
-            reality: `The copy is written for other attorneys, not for the person sitting alone at their kitchen table trying to figure out what happens next. The gap isn't that the copy is bad—it's that it's speaking to a rational buyer when there is no rational buyer in family law.`,
-            chainImpact: "Even with differentiated positioning, a clinical website confirms their fear that lawyers don't get what they're going through. They leave.",
+            question: "Does your site make someone in crisis feel understood?",
+            quote: "People visit my site but don't call.",
+            blindSpot: `Your site has the right information. Practice areas, credentials, experience. But most of it is written from your perspective. "We provide." "We are dedicated to." "Our team has 50 years of combined experience." The person reading it at 2am after the worst conversation of their life isn't looking for a resume. They're looking for a sign that someone gets what they're going through.`,
+            reality: `Your site speaks to a rational buyer comparing services. But there is no rational buyer in family law. The person on your site is scared, overwhelmed, and trying to figure out what happens next. If your copy doesn't meet them there, they leave and find someone whose does. Not because that firm is better. Because that firm's site made them feel less alone.`,
+            chainImpact: "Even if your positioning is strong and you stand out visually, a site that reads like a brochure confirms their fear that lawyers don't understand what they're going through. The gap between what they're feeling and what your site says is the reason they don't call.",
             diagnostic: "Read your homepage out loud. Does it sound like you're talking to a person going through the worst year of their life, or does it sound like a brochure?",
             fixType: "Quick Fix (Firm Asset)",
             color: "bg-purple-100 text-purple-800 border-purple-300",
@@ -219,48 +219,54 @@
           return (
             <div className="min-h-screen bg-slate-50 text-slate-900 font-sans pb-12">
               <header className="bg-slate-900 text-white py-12 px-6">
-                <div className="max-w-6xl mx-auto">
-                  <h1 className="text-4xl font-bold mb-4 tracking-tight">The Five Gap Framework</h1>
-                  <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
-                    A diagnostic framework identifying the five places where a divorce attorney's marketing breaks down 
-                    between "someone needs a divorce attorney" and "someone calls your firm."
-                  </p>
-                </div>
-              </header>
+        <div className="max-w-6xl mx-auto">
+          <h1 className="text-4xl font-bold mb-4 tracking-tight">The Five Gap Framework</h1>
+          <p className="text-xl text-slate-300 max-w-3xl leading-relaxed">
+            A diagnostic framework identifying the five places where a divorce attorney's marketing breaks down 
+            between "someone needs a divorce attorney" and "someone calls your firm."
+          </p>
+        </div>
+      </header>
 
-              <div className="max-w-6xl mx-auto px-6 mt-8 mb-8">
-                <div className="flex flex-wrap gap-2 md:gap-4 border-b border-slate-200 pb-px">
-                  <button 
-                    onClick={() => setActiveTab('flowchart')}
-                    className={`pb-4 px-4 text-sm font-semibold tracking-wide transition-colors ${activeTab === 'flowchart' ? 'border-b-2 border-slate-900 text-slate-900' : 'text-slate-500 hover:text-slate-700'}`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <Network size={18} />
-                      Ecosystem Flowchart
-                    </div>
-                  </button>
-                  <button 
-                    onClick={() => setActiveTab('framework')}
-                    className={`pb-4 px-4 text-sm font-semibold tracking-wide transition-colors ${activeTab === 'framework' ? 'border-b-2 border-slate-900 text-slate-900' : 'text-slate-500 hover:text-slate-700'}`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <Activity size={18} />
-                      Interactive Framework
-                    </div>
-                  </button>
-                  <button 
-                    onClick={() => setActiveTab('assessment')}
-                    className={`pb-4 px-4 text-sm font-semibold tracking-wide transition-colors ${activeTab === 'assessment' ? 'border-b-2 border-slate-900 text-slate-900' : 'text-slate-500 hover:text-slate-700'}`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <ClipboardList size={18} />
-                      Diagnostic Assessment
-                    </div>
-                  </button>
-                </div>
-              </div>
+      {/* Navigation */}
+      <div className="max-w-6xl mx-auto px-6 mt-8 mb-10">
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+          <button 
+            onClick={() => setActiveTab('flowchart')}
+            className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-200 flex items-center gap-2 
+              ${activeTab === 'flowchart' 
+                ? 'bg-slate-900 text-white shadow-md scale-105' 
+                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 shadow-sm'}`}
+          >
+            <Network size={18} />
+            Visual Flowchart
+          </button>
+          
+          <button 
+            onClick={() => setActiveTab('framework')}
+            className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-200 flex items-center gap-2 
+              ${activeTab === 'framework' 
+                ? 'bg-slate-900 text-white shadow-md scale-105' 
+                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 shadow-sm'}`}
+          >
+            <Activity size={18} />
+            Interactive Framework
+          </button>
 
-              <main className="max-w-6xl mx-auto px-6">
+          <button 
+            onClick={() => setActiveTab('assessment')}
+            className={`px-6 py-3 rounded-full text-sm font-bold tracking-wide transition-all duration-200 flex items-center gap-2 
+              ${activeTab === 'assessment' 
+                ? 'bg-slate-900 text-white shadow-md scale-105' 
+                : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900 shadow-sm'}`}
+          >
+            <ClipboardList size={18} />
+            Diagnostic Assessment
+          </button>
+        </div>
+      </div>
+
+      <main className="max-w-6xl mx-auto px-6">
         {activeTab === 'flowchart' && (
           <div className="max-w-5xl mx-auto py-8 animate-in fade-in duration-500">
             <div className="text-center mb-12">
@@ -362,7 +368,7 @@
                       <Layout size={18} /> Gap 2: Positioning
                     </h4>
                     <p className="text-xs font-medium text-indigo-600 italic mb-3">Your site has your colors, your photos.</p>
-                    <p className="text-sm text-slate-600">But if a competitor swapped their logo and attorney profile page onto it, does it still play?</p>
+                    <p className="text-sm text-slate-600">But if a competitor swapped their logo onto it, does it still play? Positioning isn't design. It's deciding who you're for and building everything around that.</p>
                   </div>
 
                   {/* Gap 3 */}
