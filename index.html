@@ -124,7 +124,7 @@
         // --- NEW: 20-Question ScoreApp Style Assessment ---
         const quizQuestions = [
           // Gap 1: Visibility
-          { id: 1, gapId: 1, q: "If you look at a local search grid for your firm, what happens to your rankings just 3 to 5 miles away from your office?", options: [{ text: "We drop off the map completely (Invisible)", score: 0 }, { text: "We start fading to page 2 or 3", score: 1 }, { text: "We dominate the top 3 consistently", score: 2 }] },
+          { id: 1, gapId: 1, q: "If someone searched \"divorce attorney near me\" from different neighborhoods across your market, do you know where your firm shows up and where it doesn't?", options: [{ text: "Not really. I see ranking reports, but I've never seen a full geographic picture.", score: 0 }, { text: "I have a sense. We're strong near the office but fade in certain areas.", score: 1 }, { text: "Yes. I know exactly where we show up and where we drop off.", score: 2 }] },
           { id: 2, gapId: 1, q: "Are you relying entirely on referrals and word-of-mouth for new cases?", options: [{ text: "Yes, almost 100%", score: 0 }, { text: "Mostly, but we get some web traffic", score: 1 }, { text: "No, we have predictable, inbound search traffic", score: 2 }] },
           { id: 3, gapId: 1, q: "How wide is your true local search footprint?", options: [{ text: "I don't know", score: 0 }, { text: "Only the immediate area around our office", score: 1 }, { text: "We consistently rank across the entire metro/county", score: 2 }] },
           { id: 4, gapId: 1, q: "When you review your metrics, do you get calls from people who didn't search your specific firm name?", options: [{ text: "Rarely / Never", score: 0 }, { text: "Sometimes", score: 1 }, { text: "Frequently", score: 2 }] },
@@ -261,318 +261,330 @@
               </div>
 
               <main className="max-w-6xl mx-auto px-6">
-                {activeTab === 'flowchart' && (
-                  <div className="max-w-5xl mx-auto py-8 animate-in fade-in duration-500">
-                    <div className="text-center mb-12">
-                      <h2 className="text-3xl font-bold mb-4">The Continuous Ecosystem</h2>
-                      <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
-                        Consumers enter from different sources, but they all flow into the same evaluative phase. Here is how your marketing assets connect to drive a final decision.
+        {activeTab === 'flowchart' && (
+          <div className="max-w-5xl mx-auto py-8 animate-in fade-in duration-500">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold mb-4">The Continuous Ecosystem</h2>
+              <p className="text-slate-600 max-w-3xl mx-auto text-lg leading-relaxed">
+                Consumers enter from different sources, but they all flow into the same evaluative phase. Here is how your marketing assets connect to drive a final decision.
+              </p>
+            </div>
+
+            <div className="space-y-0 relative">
+              
+              {/* --- PHASE 1: DISCOVERY & ENTRY --- */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mb-8">
+                
+                {/* Source 1: Search */}
+                <div className="flex flex-col items-center h-full w-full">
+                  <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
+                      <Search size={20} />
+                    </div>
+                    <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Active Search</h3>
+                    <p className="text-sm text-slate-500">Google Map Pack & Organic</p>
+                  </div>
+                  
+                  {/* Gap 1 Box */}
+                  <div className="w-[2px] bg-slate-300 h-6"></div>
+                  
+                  <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 shadow-sm w-full text-center z-10">
+                    <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-1">
+                      <MapPin size={18} /> Gap 1: Visibility
+                    </h4>
+                    <p className="text-xs font-medium text-blue-600 italic mb-2">They assume searching from the office reflects reality.</p>
+                    <div className="text-xs text-left space-y-2 mt-3">
+                      <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Missing = Lost.</span></div>
+                      <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Found = Proceeds down.</span></div>
+                    </div>
+                  </div>
+                  
+                  {/* Connection to unified funnel */}
+                  <div className="flex flex-col items-center flex-grow w-full mt-2">
+                     <div className="w-[2px] bg-slate-300 flex-grow min-h-[40px]"></div>
+                     <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
+                  </div>
+                </div>
+
+                {/* Source 2: Direct / Paid */}
+                <div className="flex flex-col items-center h-full w-full">
+                  <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
+                      <Radio size={20} />
+                    </div>
+                    <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Paid & Direct</h3>
+                    <p className="text-sm text-slate-500">Ads, Radio, Billboards</p>
+                  </div>
+                  
+                  {/* Connection to unified funnel */}
+                  <div className="flex flex-col items-center flex-grow w-full mt-2 relative">
+                     <div className="w-[2px] border-l-2 border-dashed border-slate-300 flex-grow min-h-[100px]"></div>
+                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-50 text-xs px-3 py-1.5 rounded-full text-slate-500 font-medium border border-slate-200 z-10 whitespace-nowrap shadow-sm">Bypasses Visibility</div>
+                     <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
+                  </div>
+                </div>
+
+                {/* Source 3: Referrals */}
+                <div className="flex flex-col items-center h-full w-full">
+                  <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
+                      <Users size={20} />
+                    </div>
+                    <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Referrals</h3>
+                    <p className="text-sm text-slate-500">Past clients, other attorneys</p>
+                  </div>
+                  
+                  {/* Connection to unified funnel */}
+                  <div className="flex flex-col items-center flex-grow w-full mt-2 relative">
+                     <div className="w-[2px] border-l-2 border-dashed border-green-300 flex-grow min-h-[100px]"></div>
+                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-green-50 text-xs px-3 py-1.5 rounded-full text-green-700 font-bold border border-green-200 shadow-sm flex items-center gap-1 z-10 whitespace-nowrap"><Star size={12}/> Borrowed Trust</div>
+                     <div className="text-green-500 -mt-1"><ArrowDown size={20} /></div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* --- PHASE 2: THE EVALUATION GAUNTLET --- */}
+              <div className="bg-slate-100 rounded-3xl p-6 md:p-8 border border-slate-200 relative shadow-inner mb-0 mt-8">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm z-20 whitespace-nowrap">
+                  Phase 2: The Evaluation
+                </div>
+                
+                <div className="text-center mb-6 mt-4">
+                  <p className="text-slate-600 font-medium">All traffic sources merge here. Consumers look at your Website and Online Profile concurrently to answer three questions:</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  
+                  {/* Gap 2 */}
+                  <div className="bg-white border-2 border-indigo-200 rounded-2xl p-5 shadow-sm">
+                    <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-1">
+                      <Layout size={18} /> Gap 2: Positioning
+                    </h4>
+                    <p className="text-xs font-medium text-indigo-600 italic mb-3">They think custom colors = unique positioning.</p>
+                    <p className="text-sm text-slate-600">Do you visually stand out from the other clinical firm websites?</p>
+                  </div>
+
+                  {/* Gap 3 */}
+                  <div className="bg-white border-2 border-purple-200 rounded-2xl p-5 shadow-sm">
+                    <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-1">
+                      <MessageSquare size={18} /> Gap 3: Message
+                    </h4>
+                    <p className="text-xs font-medium text-purple-600 italic mb-3">They don't realize their site reads like a textbook.</p>
+                    <p className="text-sm text-slate-600">Does your website copy speak to their fear and pain directly?</p>
+                  </div>
+
+                  {/* Gap 4 */}
+                  <div className="bg-white border-2 border-pink-200 rounded-2xl p-5 shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-pink-100 text-pink-800 text-[9px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">External Trust</div>
+                    <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-1">
+                      <Star size={18} /> Gap 4: Trust
+                    </h4>
+                    <p className="text-xs font-medium text-pink-600 italic mb-3">They assume a 5-star average is all it takes.</p>
+                    <p className="text-sm text-slate-600">Do your Google reviews and website trust badges validate your claims?</p>
+                  </div>
+
+                </div>
+              </div>
+
+
+              {/* --- PHASE 3: THE CLOSER --- */}
+              <div className="flex flex-col items-center justify-center w-full pt-4">
+                <div className="w-[2px] bg-slate-300 h-10"></div>
+                <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
+
+                <div className="bg-rose-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-rose-800 w-full max-w-4xl mt-10">
+                  <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
+                    <div className="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4">
+                      <Users size={120} />
+                    </div>
+                  </div>
+                  
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
+                    Phase 3: The Closer
+                  </div>
+                  
+                  <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 pt-2">
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-3 mb-2">
+                        <h3 className="text-2xl font-bold flex items-center gap-2">
+                          <Users size={28} className="text-rose-400" />
+                          Gap 5: Familiarity (Video)
+                        </h3>
+                        <span className="flex items-center gap-1.5 bg-pink-500/20 text-pink-200 text-xs font-bold px-2.5 py-1 rounded-md border border-pink-500/30">
+                          <Star size={14} className="text-pink-400" /> The Ultimate Trust Signal
+                        </span>
+                      </div>
+                      <p className="text-sm font-medium text-rose-300 italic mb-3">They assume the "selling" starts at the consultation.</p>
+                      <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
+                        They evaluated you and stuck around. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? Engaging video doesn't just build familiarity—it builds a parasocial relationship that supersedes the need for external reviews.
                       </p>
                     </div>
-
-                    <div className="space-y-0 relative">
-                      
-                      {/* --- PHASE 1: DISCOVERY & ENTRY --- */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mb-8">
-                        
-                        {/* Source 1: Search */}
-                        <div className="flex flex-col items-center h-full w-full">
-                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
-                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
-                              <Search size={20} />
-                            </div>
-                            <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Active Search</h3>
-                            <p className="text-sm text-slate-500">Google Map Pack & Organic</p>
-                          </div>
-                          
-                          {/* Gap 1 Box */}
-                          <div className="w-[2px] bg-slate-300 h-6"></div>
-                          
-                          <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 shadow-sm w-full text-center z-10">
-                            <h4 className="font-bold text-blue-900 flex items-center justify-center gap-2 mb-1">
-                              <MapPin size={18} /> Gap 1: Visibility
-                            </h4>
-                            <p className="text-xs font-medium text-blue-600 italic mb-2">They assume searching from the office reflects reality.</p>
-                            <div className="text-xs text-left space-y-2 mt-3">
-                              <div className="flex gap-2"><span className="text-red-500 font-bold">X</span><span className="text-slate-600">Missing = Lost.</span></div>
-                              <div className="flex gap-2"><span className="text-green-500 font-bold">✓</span><span className="text-slate-600">Found = Proceeds down.</span></div>
-                            </div>
-                          </div>
-                          
-                          {/* Connection to unified funnel */}
-                          <div className="flex flex-col items-center flex-grow w-full mt-2">
-                             <div className="w-0 border-l-2 border-dashed border-slate-300 h-10"></div>
-                             <div className="bg-slate-50 text-xs px-3 py-1.5 rounded-full text-slate-500 font-medium border border-slate-200 z-10 whitespace-nowrap shadow-sm">Bypasses Visibility</div>
-                             <div className="w-0 border-l-2 border-dashed border-slate-300 flex-grow min-h-[30px]"></div>
-                             <div className="text-slate-400 -mt-1"><ArrowDown size={20} /></div>
-                          </div>
-                        </div>
-
-                        {/* Source 3: Referrals */}
-                        <div className="flex flex-col items-center h-full w-full">
-                          <div className="bg-white border-2 border-slate-200 rounded-2xl p-6 shadow-sm w-full text-center relative z-10">
-                            <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-slate-900 text-white p-2 rounded-full shadow-md">
-                              <Users size={20} />
-                            </div>
-                            <h3 className="font-bold text-lg text-slate-800 mt-2 mb-1">Referrals</h3>
-                            <p className="text-sm text-slate-500">Past clients, other attorneys</p>
-                          </div>
-                          
-                          {/* Connection to unified funnel */}
-                          <div className="flex flex-col items-center flex-grow w-full mt-2">
-                             <div className="w-0 border-l-2 border-dashed border-green-300 h-10"></div>
-                             <div className="bg-green-50 text-xs px-3 py-1.5 rounded-full text-green-700 font-bold border border-green-200 shadow-sm flex items-center gap-1 z-10 whitespace-nowrap"><Star size={12}/> Borrowed Trust</div>
-                             <div className="w-0 border-l-2 border-dashed border-green-300 flex-grow min-h-[30px]"></div>
-                             <div className="text-green-500 -mt-1"><ArrowDown size={20} /></div>
-                          </div>
-                        </div>
-
+                    <div className="w-full md:w-auto bg-rose-950/50 p-5 rounded-2xl border border-rose-800/50 text-center flex flex-col justify-center min-w-[200px]">
+                      <span className="block text-rose-300 text-sm font-bold mb-3">When video closes this gap:</span>
+                      <div className="bg-green-500 text-white font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 shadow-sm">
+                        They call ready to hire <ArrowRight size={16} />
                       </div>
-
-
-                      {/* --- PHASE 2: THE EVALUATION GAUNTLET --- */}
-                      <div className="bg-slate-100 rounded-3xl p-6 md:p-8 border border-slate-200 relative shadow-inner mb-0 mt-8">
-                        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-slate-800 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-sm z-20 whitespace-nowrap">
-                          Phase 2: The Evaluation
-                        </div>
-                        
-                        <div className="text-center mb-6 mt-4">
-                          <p className="text-slate-600 font-medium">All traffic sources merge here. Consumers look at your Website and Online Profile concurrently to answer three questions:</p>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                          
-                          {/* Gap 2 */}
-                          <div className="bg-white border-2 border-indigo-200 rounded-2xl p-5 shadow-sm">
-                            <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-1">
-                              <Layout size={18} /> Gap 2: Positioning
-                            </h4>
-                            <p className="text-xs font-medium text-indigo-600 italic mb-3">They think custom colors = unique positioning.</p>
-                            <p className="text-sm text-slate-600">Do you visually stand out from the other clinical firm websites?</p>
-                          </div>
-
-                          {/* Gap 3 */}
-                          <div className="bg-white border-2 border-purple-200 rounded-2xl p-5 shadow-sm">
-                            <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-1">
-                              <MessageSquare size={18} /> Gap 3: Message
-                            </h4>
-                            <p className="text-xs font-medium text-purple-600 italic mb-3">They don't realize their site reads like a textbook.</p>
-                            <p className="text-sm text-slate-600">Does your website copy speak to their fear and pain directly?</p>
-                          </div>
-
-                          {/* Gap 4 */}
-                          <div className="bg-white border-2 border-pink-200 rounded-2xl p-5 shadow-sm relative overflow-hidden">
-                            <div className="absolute top-0 right-0 bg-pink-100 text-pink-800 text-[9px] font-bold px-2 py-1 rounded-bl-lg uppercase tracking-wider">External Trust</div>
-                            <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-1">
-                              <Star size={18} /> Gap 4: Trust
-                            </h4>
-                            <p className="text-xs font-medium text-pink-600 italic mb-3">They assume a 5-star average is all it takes.</p>
-                            <p className="text-sm text-slate-600">Do your Google reviews and website trust badges validate your claims?</p>
-                          </div>
-
-                        </div>
-                      </div>
-
-
-                      {/* --- PHASE 3: THE CLOSER --- */}
-                      <div className="flex flex-col items-center justify-center w-full pt-4">
-                        <div className="w-[2px] bg-slate-300 h-10"></div>
-                        <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
-
-                        <div className="bg-rose-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-rose-800 w-full max-w-4xl mt-10">
-                          {/* Wrapper for the background icon to prevent badge clipping */}
-                          <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
-                            <div className="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4">
-                              <Users size={120} />
-                            </div>
-                          </div>
-                          
-                          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
-                            Phase 3: The Closer
-                          </div>
-                          
-                          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 pt-2">
-                            <div className="flex-1">
-                              <div className="flex flex-wrap items-center gap-3 mb-2">
-                                <h3 className="text-2xl font-bold flex items-center gap-2">
-                                  <Users size={28} className="text-rose-400" />
-                                  Gap 5: Familiarity (Video)
-                                </h3>
-                                {/* Trust Builder Badge */}
-                                <span className="flex items-center gap-1.5 bg-pink-500/20 text-pink-200 text-xs font-bold px-2.5 py-1 rounded-md border border-pink-500/30">
-                                  <Star size={14} className="text-pink-400" /> The Ultimate Trust Signal
-                                </span>
-                              </div>
-                              <p className="text-sm font-medium text-rose-300 italic mb-3">They assume the "selling" starts at the consultation.</p>
-                              <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
-                                They evaluated you and stuck around. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? Engaging video doesn't just build familiarity—it builds a parasocial relationship that supersedes the need for external reviews.
-                              </p>
-                            </div>
-                            <div className="w-full md:w-auto bg-rose-950/50 p-5 rounded-2xl border border-rose-800/50 text-center flex flex-col justify-center min-w-[200px]">
-                              <span className="block text-rose-300 text-sm font-bold mb-3">When video closes this gap:</span>
-                              <div className="bg-green-500 text-white font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 shadow-sm">
-                                They call ready to hire <ArrowRight size={16} />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-
-                      {/* --- PHASE 4: THE DEFAULT OUTCOME --- */}
-                      <div className="flex flex-col items-center justify-center w-full">
-                        <div className="w-[2px] bg-slate-300 h-10 mt-2"></div>
-                        <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
-
-                        <div className="bg-slate-900 rounded-3xl p-8 text-white text-center shadow-lg w-full max-w-4xl mt-6 relative">
-                          <h3 className="text-2xl font-bold mb-2">The Final Decision</h3>
-                          <p className="text-slate-400 mb-6 text-sm">If your evaluation phase and website fail to provide a compelling reason to choose you...</p>
-                          
-                          <div className="bg-red-950/40 rounded-2xl p-6 border border-red-900/50">
-                            <div className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-red-500/20 text-red-400 mb-4">
-                              <XCircle size={24} />
-                            </div>
-                            <h4 className="font-bold text-lg text-red-400 mb-3">All Evaluative Gaps Open (The Default)</h4>
-                            <div className="bg-slate-900 p-5 rounded-xl border border-slate-700 text-sm font-medium text-slate-300 text-left space-y-4">
-                              <p>The consumer defaults to variables completely outside of your brand's value:</p>
-                              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-red-300">
-                                <li className="flex items-center gap-2"><MapPin size={18}/> Proximity (Closest office)</li>
-                                <li className="flex items-center gap-2"><Star size={18}/> Review Volume (Just the number)</li>
-                                <li className="flex items-center gap-2"><Activity size={18}/> Speed (Who answered first)</li>
-                                <li className="flex items-center gap-2"><Layout size={18}/> Price (Cheapest consult)</li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
                     </div>
                   </div>
-                )}
+                </div>
+              </div>
 
-                {/* --- The Framework Breakdown Tab --- */}
-                {activeTab === 'framework' && (
-                  <div className="space-y-12 animate-in fade-in duration-500">
+
+              {/* --- PHASE 4: THE DEFAULT OUTCOME --- */}
+              <div className="flex flex-col items-center justify-center w-full">
+                <div className="w-[2px] bg-slate-300 h-10 mt-2"></div>
+                <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
+
+                <div className="bg-slate-900 rounded-3xl p-8 text-white text-center shadow-lg w-full max-w-4xl mt-6 relative">
+                  <h3 className="text-2xl font-bold mb-2">The Final Decision</h3>
+                  <p className="text-slate-400 mb-6 text-sm">If your evaluation phase and website fail to provide a compelling reason to choose you...</p>
+                  
+                  <div className="bg-red-950/40 rounded-2xl p-6 border border-red-900/50">
+                    <div className="inline-flex justify-center items-center w-12 h-12 rounded-full bg-red-500/20 text-red-400 mb-4">
+                      <XCircle size={24} />
+                    </div>
+                    <h4 className="font-bold text-lg text-red-400 mb-3">All Evaluative Gaps Open (The Default)</h4>
+                    <div className="bg-slate-900 p-5 rounded-xl border border-slate-700 text-sm font-medium text-slate-300 text-left space-y-4">
+                      <p>The consumer defaults to variables completely outside of your brand's value:</p>
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-red-300">
+                        <li className="flex items-center gap-2"><MapPin size={18}/> Proximity (Closest office)</li>
+                        <li className="flex items-center gap-2"><Star size={18}/> Review Volume (Just the number)</li>
+                        <li className="flex items-center gap-2"><Activity size={18}/> Speed (Who answered first)</li>
+                        <li className="flex items-center gap-2"><Layout size={18}/> Price (Cheapest consult)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        )}
+
+        {/* --- The Framework Breakdown Tab --- */}
+        {activeTab === 'framework' && (
+          <div className="space-y-12 animate-in fade-in duration-500">
+            
+            {/* The Interactive Navigation */}
+            <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl font-bold mb-3">The Diagnostic Framework</h2>
+                <p className="text-slate-500 max-w-2xl mx-auto">Select a gap in the chain below to view the diagnosis, the blind spots, and the test.</p>
+              </div>
+              
+              <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative max-w-5xl mx-auto">
+                <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 z-0"></div>
+                
+                {gapsData.map((gap, index) => {
+                  const Icon = gap.icon;
+                  const isActive = activeGap.id === gap.id;
+                  
+                  return (
+                    <div key={gap.id} className="relative z-10 flex flex-col items-center w-full md:w-1/5 group cursor-pointer" onClick={() => setActiveGap(gap)}>
+                      <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm
+                        ${isActive ? gap.activeColor + ' scale-110 shadow-md ring-4 ring-slate-100' : 'bg-white border-2 border-slate-200 text-slate-500 group-hover:border-slate-400 group-hover:text-slate-700'}`}
+                      >
+                        <Icon size={28} />
+                      </div>
+                      <div className="mt-4 text-center">
+                        <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>Gap {gap.id}</p>
+                        <h3 className={`font-semibold ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>{gap.name}</h3>
+                      </div>
+                      {index < gapsData.length - 1 && (
+                        <div className="md:hidden my-4 text-slate-300">
+                          <ArrowDown size={24} />
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* The Streamlined Content Area */}
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white rounded-3xl shadow-md border border-slate-200 overflow-hidden">
+                
+                {/* Header Section */}
+                <div className={`${activeGap.color.split(' ')[0]} ${activeGap.color.split(' ')[2]} px-8 md:px-12 py-8 border-b text-center relative overflow-hidden`}>
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
+                    <activeGap.icon size={200} />
+                  </div>
+                  <div className="relative z-10 flex flex-col items-center">
+                    <span className="inline-flex items-center gap-2 bg-white/60 text-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
+                      Diagnosis {activeGap.id}
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">{activeGap.name}</h2>
+                    <p className="text-xl font-medium text-slate-700 mb-6">"{activeGap.question}"</p>
                     
-                    {/* The Interactive Navigation */}
-                    <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 md:p-12">
-                      <div className="text-center mb-10">
-                        <h2 className="text-2xl font-bold mb-3">The Diagnostic Framework</h2>
-                        <p className="text-slate-500 max-w-2xl mx-auto">Select a gap in the chain below to view the diagnosis, the blind spots, and the test.</p>
-                      </div>
-                      
-                      <div className="flex flex-col md:flex-row items-center justify-between gap-4 relative max-w-5xl mx-auto">
-                        <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-100 -translate-y-1/2 z-0"></div>
-                        
-                        {gapsData.map((gap, index) => {
-                          const Icon = gap.icon;
-                          const isActive = activeGap.id === gap.id;
-                          
-                          return (
-                            <div key={gap.id} className="relative z-10 flex flex-col items-center w-full md:w-1/5 group cursor-pointer" onClick={() => setActiveGap(gap)}>
-                              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-300 shadow-sm
-                                ${isActive ? gap.activeColor + ' scale-110 shadow-md ring-4 ring-slate-100' : 'bg-white border-2 border-slate-200 text-slate-500 group-hover:border-slate-400 group-hover:text-slate-700'}`}
-                              >
-                                <Icon size={28} />
-                              </div>
-                              <div className="mt-4 text-center">
-                                <p className={`text-xs font-bold uppercase tracking-wider mb-1 ${isActive ? 'text-slate-900' : 'text-slate-500'}`}>Gap {gap.id}</p>
-                                <h3 className={`font-semibold ${isActive ? 'text-slate-900' : 'text-slate-600'}`}>{gap.name}</h3>
-                              </div>
-                              {index < gapsData.length - 1 && (
-                                <div className="md:hidden my-4 text-slate-300">
-                                  <ArrowDown size={24} />
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
+                    <div className="inline-block bg-white/70 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-slate-200/50">
+                      <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">The Symptom</p>
+                      <p className="font-semibold text-slate-900 italic">"{activeGap.quote}"</p>
                     </div>
-
-                    {/* The Streamlined Content Area */}
-                    <div className="max-w-4xl mx-auto">
-                      <div className="bg-white rounded-3xl shadow-md border border-slate-200 overflow-hidden">
-                        
-                        {/* Header Section */}
-                        <div className={`${activeGap.color.split(' ')[0]} ${activeGap.color.split(' ')[2]} px-8 md:px-12 py-8 border-b text-center relative overflow-hidden`}>
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-5">
-                            <activeGap.icon size={200} />
-                          </div>
-                          <div className="relative z-10 flex flex-col items-center">
-                            <span className="inline-flex items-center gap-2 bg-white/60 text-slate-700 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider mb-4 shadow-sm backdrop-blur-sm">
-                              Diagnosis {activeGap.id}
-                            </span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-3">{activeGap.name}</h2>
-                            <p className="text-xl font-medium text-slate-700 mb-6">"{activeGap.question}"</p>
-                            
-                            <div className="inline-block bg-white/70 backdrop-blur-md px-6 py-3 rounded-2xl shadow-sm border border-slate-200/50">
-                              <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">The Symptom</p>
-                              <p className="font-semibold text-slate-900 italic">"{activeGap.quote}"</p>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* The Contrast: Blind Spot vs Reality */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x border-b border-slate-200">
-                          {/* Blind Spot */}
-                          <div className="p-8 md:p-10 bg-slate-50/50">
-                            <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
-                              <AlertCircle size={18} className="text-slate-400" /> What The Attorney Doesn't Realize
-                            </h4>
-                            <p className="text-slate-700 leading-relaxed text-lg">{activeGap.blindSpot}</p>
-                          </div>
-                          
-                          {/* Reality */}
-                          <div className="p-8 md:p-10">
-                            <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
-                              <Activity size={18} className="text-blue-500" /> What's Actually Happening
-                            </h4>
-                            <p className="text-slate-800 leading-relaxed text-lg">{activeGap.reality}</p>
-                          </div>
-                        </div>
-
-                        {/* The Impact */}
-                        <div className="p-8 md:p-10 bg-white border-b border-slate-200">
-                          <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3 text-center">Why it matters in the ecosystem</h4>
-                          <p className="text-slate-700 text-lg leading-relaxed text-center max-w-2xl mx-auto">{activeGap.chainImpact}</p>
-                        </div>
-
-                        {/* The Diagnostic Question (Footer of Card) */}
-                        <div className="bg-slate-900 p-8 md:p-10 text-center relative overflow-hidden">
-                          <div className="relative z-10">
-                            <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">The Diagnostic Test</h4>
-                            <p className="text-2xl font-medium text-white leading-snug max-w-3xl mx-auto mb-6">"{activeGap.diagnostic}"</p>
-                            <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wide">
-                              {activeGap.fixType}
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-
-                    {/* Global Anchor: The Final Default (Moved outside the card) */}
-                    <div className="max-w-4xl mx-auto mt-16 relative">
-                      <div className="flex justify-center mb-6">
-                        <div className="w-px h-12 bg-slate-300"></div>
-                      </div>
-                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-rose-400"></div>
-                        <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">The Final Default Consequence</h3>
-                        <div className="text-lg md:text-xl text-slate-700 leading-relaxed space-y-4 max-w-3xl mx-auto font-medium">
-                          <p>When nothing on your website differentiates you, when nothing builds trust, and when there's no way to get a feel for who you are before calling, the prospect has no reason to choose you over anyone else.</p>
-                          <p>So they default. Whoever is closest. Whoever is cheapest. Whoever answers the phone first.</p>
-                          <p className="text-slate-900 font-bold text-2xl mt-6">You lose a client you were the right fit for.<br/>And you never know they were looking.</p>
-                        </div>
-                      </div>
-                    </div>
-
                   </div>
-                )}
+                </div>
 
-                {/* --- ScoreApp Style Diagnostic Assessment Tab --- */}
-                {activeTab === 'assessment' && (
+                {/* The Contrast: Blind Spot vs Reality */}
+                <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x border-b border-slate-200">
+                  {/* Blind Spot */}
+                  <div className="p-8 md:p-10 bg-slate-50/50">
+                    <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
+                      <AlertCircle size={18} className="text-slate-400" /> What The Attorney Doesn't Realize
+                    </h4>
+                    <p className="text-slate-700 leading-relaxed text-lg">{activeGap.blindSpot}</p>
+                  </div>
+                  
+                  {/* Reality */}
+                  <div className="p-8 md:p-10">
+                    <h4 className="flex items-center gap-2 text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">
+                      <Activity size={18} className="text-blue-500" /> What's Actually Happening
+                    </h4>
+                    <p className="text-slate-800 leading-relaxed text-lg">{activeGap.reality}</p>
+                  </div>
+                </div>
+
+                {/* The Impact */}
+                <div className="p-8 md:p-10 bg-white border-b border-slate-200">
+                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3 text-center">Why it matters in the ecosystem</h4>
+                  <p className="text-slate-700 text-lg leading-relaxed text-center max-w-2xl mx-auto">{activeGap.chainImpact}</p>
+                </div>
+
+                {/* The Diagnostic Question (Footer of Card) */}
+                <div className="bg-slate-900 p-8 md:p-10 text-center relative overflow-hidden">
+                  <div className="relative z-10">
+                    <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">The Diagnostic Test</h4>
+                    <p className="text-2xl font-medium text-white leading-snug max-w-3xl mx-auto mb-6">"{activeGap.diagnostic}"</p>
+                    <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 text-slate-300 text-xs font-bold px-4 py-2 rounded-full uppercase tracking-wide">
+                      {activeGap.fixType}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            {/* Global Anchor: The Final Default (Moved outside the card) */}
+            <div className="max-w-4xl mx-auto mt-16 relative">
+              <div className="flex justify-center mb-6">
+                <div className="w-px h-12 bg-slate-300"></div>
+              </div>
+              <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 text-center relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-rose-400"></div>
+                <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-6">The Final Default Consequence</h3>
+                <div className="text-lg md:text-xl text-slate-700 leading-relaxed space-y-4 max-w-3xl mx-auto font-medium">
+                  <p>When nothing on your website differentiates you, when nothing builds trust, and when there's no way to get a feel for who you are before calling, the prospect has no reason to choose you over anyone else.</p>
+                  <p>So they default. Whoever is closest. Whoever is cheapest. Whoever answers the phone first.</p>
+                  <p className="text-slate-900 font-bold text-2xl mt-6">You lose a client you were the right fit for.<br/>And you never know they were looking.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        )}
+
+        {/* --- ScoreApp Style Diagnostic Assessment Tab --- */}
+        {activeTab === 'assessment' && (
                   <div className="max-w-4xl mx-auto animate-in fade-in duration-500">
                     
                     {/* START SCREEN */}
