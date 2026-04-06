@@ -47,6 +47,8 @@
         const Check = (props) => <IconBase {...props}><polyline points="20 6 9 17 4 12"/></IconBase>;
         const ChevronRight = (props) => <IconBase {...props}><polyline points="9 18 15 12 9 6"/></IconBase>;
         const ChevronLeft = (props) => <IconBase {...props}><polyline points="15 18 9 12 15 6"/></IconBase>;
+        const Target = (props) => <IconBase {...props}><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></IconBase>;
+        const MousePointerClick = (props) => <IconBase {...props}><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.037 9.69a.498.498 0 0 1 .653-.653l11 4.5a.5.5 0 0 1-.074.949l-4.349 1.041a1 1 0 0 0-.74.739l-1.04 4.35a.5.5 0 0 1-.95.074z"/></IconBase>;
 
         const gapsData = [
           {
@@ -54,9 +56,9 @@
             name: "Visibility Gap",
             icon: MapPin,
             question: "Can they find you?",
-            quote: "I see us when I search, but I'm not sure it's translating into inquiries.",
-            blindSpot: `A ranking report gives you a pin. One number, from one location. It says "#2 for divorce attorney near me" and you assume that's the answer. But "near me" changes depending on where "me" is standing. A visibility report gives you a footprint. It shows you the shape of your reach, where you're dominant, where you fade, and where you're completely invisible. Most firms have never seen their footprint. They've only ever seen the pin.`,
-            reality: `Your visibility isn't a number. It's a shape. You're likely #1 in a tight circle around your office and invisible a few miles out in every direction. That means qualified prospects in your own market are searching, finding your competitors, and calling them instead. Not because those firms are better. Because those firms are closer to where that person is standing when they search.`,
+            quote: "People searching for a divorce attorney aren’t finding me.",
+            blindSpot: `A ranking report gives you a pin. One number, from one location. But "near me" changes depending on where "me" is standing. A visibility report gives you a footprint. It shows where you're dominant, where you fade, and where you're completely invisible.`,
+            reality: `When someone searches “divorce attorney near me,” do you show up? You're likely #1 in a tight circle around your office and invisible a few miles out. That means qualified prospects are finding your competitors instead.`,
             chainImpact: "For active searchers, this is the first gate. If they can't find you, nothing else matters. However, other traffic sources (referrals, ads) bypass this gap entirely.",
             diagnostic: "If someone searched 'divorce attorney near me' from neighborhoods near your address, how many of those searches would show you in the top three?",
             fixType: "Quick Fix (Firm Asset)",
@@ -65,59 +67,59 @@
           },
           {
             id: 2,
-            name: "Positioning Gap",
-            icon: Layout,
-            question: "Do you stand out once they find you?",
-            quote: "I look like everyone else",
-            blindSpot: `Picking the perfect dark blue hex code and a photo of the local courthouse doesn't make a website stand out. Open five divorce attorney sites in the same city and swap the logos. Nothing feels wrong. That's the problem.`,
-            reality: `Every site leads with the same credentials, lists the same practice areas, and uses the same stock imagery. Nothing on the page tells the prospect why they should choose this specific firm instead of the one listed directly below it.`,
-            chainImpact: "When a prospect visits 3 websites that look identical, they can't decide. The positioning gap pushes the prospect into the trust gap.",
-            diagnostic: "If you removed your headshot and swapped your logo with another divorce attorney's, would a prospect be able to tell the difference?",
-            fixType: "Quick Fix (Firm Asset)",
-            color: "bg-indigo-100 text-indigo-800 border-indigo-300",
-            activeColor: "bg-indigo-600 text-white"
-          },
-          {
-            id: 3,
             name: "Message Gap",
             icon: MessageSquare,
-            question: "Does your site make someone in crisis feel understood?",
-            quote: "People visit my site but don't call.",
-            blindSpot: `Your site has the right information. Practice areas, credentials, experience. But most of it is written from your perspective. "We provide." "We are dedicated to." "Our team has 50 years of combined experience." The person reading it at 2am after the worst conversation of their life isn't looking for a resume. They're looking for a sign that someone gets what they're going through.`,
-            reality: `Your site speaks to a rational buyer comparing services. But there is no rational buyer in family law. The person on your site is scared, overwhelmed, and trying to figure out what happens next. If your copy doesn't meet them there, they leave and find someone whose does. Not because that firm is better. Because that firm's site made them feel less alone.`,
-            chainImpact: "Even if your positioning is strong and you stand out visually, a site that reads like a brochure confirms their fear that lawyers don't understand what they're going through. The gap between what they're feeling and what your site says is the reason they don't call.",
+            question: "Does your copy connect or just inform?",
+            quote: "My website feels cold and clinical.",
+            blindSpot: `If another firm could swap their logo onto your website and nothing would feel off, you haven’t claimed your territory. You’ve described what you do. But have you spoken to what they’re actually feeling?`,
+            reality: `Your site speaks to a rational buyer comparing services. But there is no rational buyer in family law. The person on your site is scared, overwhelmed, and trying to figure out what happens next. If your copy doesn't meet them there, they leave.`,
+            chainImpact: "A site that reads like a brochure confirms their fear that lawyers don't understand what they're going through. The gap between what they're feeling and what your site says is the reason they don't call.",
             diagnostic: "Read your homepage out loud. Does it sound like you're talking to a person going through the worst year of their life, or does it sound like a brochure?",
             fixType: "Quick Fix (Firm Asset)",
             color: "bg-purple-100 text-purple-800 border-purple-300",
             activeColor: "bg-purple-600 text-white"
           },
           {
-            id: 4,
+            id: 3,
             name: "Trust Gap",
             icon: Star,
-            question: "Are you externally validated for a decision this big?",
-            quote: "I have strong credentials, but prospects still treat every consultation like an interview.",
-            blindSpot: `Every attorney on the page has similar badges. Super Lawyers, Avvo, "Best Of" awards. Your prospect doesn't know what they mean, doesn't know if they were earned or purchased, and sees the same row of logos on every site they visit. Badges confirm you're qualified. Reviews are what actually help someone choose you. And only one of those helps you rank on Google.`,
-            reality: `One review says "very professional." Another says "I called them the morning my husband moved out, and I didn't feel so alone after that." The first confirms competence. The second makes someone pick up the phone. Most firms have plenty of the first and almost none of the second.`,
-            chainImpact: "Your badges speak to other attorneys. Your reviews speak to the person trying to decide who to trust with their kids and their future. When every firm on the page has the same credentials, the one with reviews that tell real stories is the one that gets the call.",
+            question: "Are you externally validated?",
+            quote: "I’m unproven for a decision this big.",
+            blindSpot: `Every attorney on the page has similar badges. Super Lawyers, Avvo, "Best Of" awards. What strangers say about you to other strangers matters more than what you say about yourself. Badges confirm you're qualified, but reviews are what actually help someone choose you.`,
+            reality: `One review says "very professional." Another says "I called them the morning my husband moved out, and I didn't feel so alone after that." The first confirms competence. The second makes someone pick up the phone.`,
+            chainImpact: "Your badges speak to other attorneys. Your reviews speak to the person trying to decide who to trust. When every firm has the same credentials, the one with reviews that tell real stories is the one that gets the call.",
             diagnostic: "Pick any review from your Google profile. Does it give someone a reason to choose you over the attorney listed above and below you?",
             fixType: "Compound/Long-term (External & Internal)",
             color: "bg-pink-100 text-pink-800 border-pink-300",
             activeColor: "bg-pink-600 text-white"
           },
           {
-            id: 5,
-            name: "Familiarity Gap",
+            id: 4,
+            name: "Connection Gap",
             icon: Users,
-            question: "Can they experience working with you before they call?",
-            quote: "I'm a stranger when they call",
-            blindSpot: `The consultation is not where the relationship starts. By the time someone books, they've already chosen. The consult is a confirmation, not an audition. If there's no video to watch beforehand, you may never make the shortlist.`,
+            question: "Can they experience you before they commit to a call?",
+            quote: "All I have is a headshot and a bio.",
+            blindSpot: `Divorce is not a transactional decision. Nobody picks an attorney the way they pick a plumber. Your prospects need to hear your voice, see how you think, and feel something before they dial. A headshot and a bio won’t get you there.`,
             reality: `The prospect can't hear your voice, see how you explain complicated legal concepts, or get any feel for your empathy. Without video to build a parasocial relationship during their research phase, you are just another name on a list.`,
-            chainImpact: "They have to find you first. But once they do, video is the ultimate closer. By using video to show empathy during the research phase, you create a parasocial relationship. The prospect walks into the consult already feeling like they know you.",
+            chainImpact: "Engaging video doesn't just build connection—it builds a parasocial relationship that supersedes the need for external reviews. The prospect walks into the consult already feeling like they know you.",
             diagnostic: "Can a prospect watch 5 minutes of you speaking, explaining, and showing empathy before they ever pick up the phone?",
             fixType: "High-Impact Asset (Video)",
             color: "bg-rose-100 text-rose-800 border-rose-300",
             activeColor: "bg-rose-600 text-white"
+          },
+          {
+            id: 5,
+            name: "Conversion Gap",
+            icon: Target,
+            question: "Does your site give them a reason to act?",
+            quote: "I get website traffic but not enough leads.",
+            blindSpot: `Visiting your site shouldn’t be the end of the journey. It should be the beginning of a conversation. Assuming people will just go to your contact page and call is leaving high-value cases on the table.`,
+            reality: `Consumers are researching after hours, on weekends, and in moments of panic. If your only call-to-action is "Call for a consultation," you lose the people who aren't ready to speak to a human yet or simply can't call right now.`,
+            chainImpact: `You've earned their attention, connected with their pain, and proven your trust. But without a frictionless way to take the next step, they bounce. A site that doesn't convert is just an expensive digital brochure.`,
+            diagnostic: "Does your website offer a low-friction way to start a conversation that doesn't require a phone call?",
+            fixType: "Quick Fix (Firm Asset)",
+            color: "bg-amber-100 text-amber-800 border-amber-300",
+            activeColor: "bg-amber-600 text-white"
           }
         ];
 
@@ -128,26 +130,26 @@
           { id: 2, gapId: 1, q: "Are you relying entirely on referrals and word-of-mouth for new cases?", options: [{ text: "Yes, almost 100%", score: 0 }, { text: "Mostly, but we get some web traffic", score: 1 }, { text: "No, we have predictable, inbound search traffic", score: 2 }] },
           { id: 3, gapId: 1, q: "How wide is your true local search footprint?", options: [{ text: "I don't know", score: 0 }, { text: "Only the immediate area around our office", score: 1 }, { text: "We consistently rank across the entire metro/county", score: 2 }] },
           { id: 4, gapId: 1, q: "When you review your metrics, do you get calls from people who didn't search your specific firm name?", options: [{ text: "Rarely / Never", score: 0 }, { text: "Sometimes", score: 1 }, { text: "Frequently", score: 2 }] },
-          // Gap 2: Positioning
-          { id: 5, gapId: 2, q: "The Logo Swap Test: If a competitor put their logo on your site and removed your attorney profile pages, would the website still work perfectly for them?", options: [{ text: "Yes, it would basically look and read like their firm", score: 0 }, { text: "Mostly, though a few minor details would be off", score: 1 }, { text: "No, the site's message and feel would make zero sense for them", score: 2 }] },
-          { id: 6, gapId: 2, q: "What is the main hero image on your homepage?", options: [{ text: "City skyline, gavel, or scales of justice", score: 0 }, { text: "A generic team photo by a building", score: 1 }, { text: "Custom imagery reflecting our specific client approach", score: 2 }] },
-          { id: 7, gapId: 2, q: "What is the dominant color scheme and visual vibe of your website?", options: [{ text: "Navy blue, dark red, or 'lawyer gold'", score: 0 }, { text: "Neutral, safe corporate colors", score: 1 }, { text: "A distinct brand palette that avoids typical legal cliches", score: 2 }] },
-          { id: 8, gapId: 2, q: "What makes your firm different?", options: [{ text: "'Our years of experience and dedication'", score: 0 }, { text: "'Our aggressive representation'", score: 1 }, { text: "A highly specific, unique client-centric philosophy", score: 2 }] },
-          // Gap 3: Message
-          { id: 9, gapId: 3, q: "Does your homepage read like a resume or a lifeline?", options: [{ text: "Mostly a resume of our awards and experience", score: 0 }, { text: "A mix of both", score: 1 }, { text: "A pure lifeline for someone in crisis", score: 2 }] },
-          { id: 10, gapId: 3, q: "What pronoun is used most heavily on your homepage?", options: [{ text: "'We / Our / The Firm'", score: 0 }, { text: "An equal mix", score: 1 }, { text: "'You / Your'", score: 2 }] },
-          { id: 11, gapId: 3, q: "Does your website specifically name the emotional fears of your clients?", options: [{ text: "No, it just lists legal services", score: 0 }, { text: "A little bit", score: 1 }, { text: "Yes, directly and empathetically", score: 2 }] },
-          { id: 12, gapId: 3, q: "If a prospect is panicking at 2 AM, will your website calm them down?", options: [{ text: "Probably not", score: 0 }, { text: "Maybe", score: 1 }, { text: "Absolutely", score: 2 }] },
-          // Gap 4: Trust
-          { id: 13, gapId: 4, q: "How many Google reviews do you have compared to your closest competitor?", options: [{ text: "Significantly fewer", score: 0 }, { text: "About the same", score: 1 }, { text: "Significantly more", score: 2 }] },
-          { id: 14, gapId: 4, q: "What do your typical reviews actually say?", options: [{ text: "'Great lawyer' or 'Very professional'", score: 0 }, { text: "A brief mention of their case outcome", score: 1 }, { text: "Detailed, emotional stories of survival and help", score: 2 }] },
-          { id: 15, gapId: 4, q: "Do you display client stories or testimonials natively on your website?", options: [{ text: "No", score: 0 }, { text: "Yes, but buried on a sub-page", score: 1 }, { text: "Yes, front and center", score: 2 }] },
-          { id: 16, gapId: 4, q: "If someone reads your reviews, do they feel a connection to past clients?", options: [{ text: "No, they just see a star rating", score: 0 }, { text: "Maybe", score: 1 }, { text: "Yes, they see themselves in those reviews", score: 2 }] },
-          // Gap 5: Familiarity
-          { id: 17, gapId: 5, q: "How often do prospects feel like they 'already know you' before the consult?", options: [{ text: "Never / Rarely", score: 0 }, { text: "Sometimes", score: 1 }, { text: "Frequently", score: 2 }] },
-          { id: 18, gapId: 5, q: "Do you use video on your website to explain your process and show empathy?", options: [{ text: "No video at all", score: 0 }, { text: "One generic firm overview video", score: 1 }, { text: "Yes, multiple targeted videos", score: 2 }] },
-          { id: 19, gapId: 5, q: "Does your consultation feel like an audition or a confirmation?", options: [{ text: "A hard audition (I have to sell myself)", score: 0 }, { text: "A mix", score: 1 }, { text: "A confirmation (They just want to know I can take their case)", score: 2 }] },
-          { id: 20, gapId: 5, q: "Can a prospect spend 5 minutes 'experiencing' your personality online without calling?", options: [{ text: "No, they just read text", score: 0 }, { text: "Maybe through a blog post", score: 1 }, { text: "Yes, through video or rich media", score: 2 }] }
+          // Gap 2: Message
+          { id: 5, gapId: 2, q: "The Logo Swap Test: If a competitor put their logo on your site, would the website still work perfectly for them?", options: [{ text: "Yes, it would basically read like their firm", score: 0 }, { text: "Mostly, though a few minor details would be off", score: 1 }, { text: "No, the site's message and feel would make zero sense for them", score: 2 }] },
+          { id: 6, gapId: 2, q: "Does your homepage read like a resume or a lifeline?", options: [{ text: "Mostly a resume of our awards and experience", score: 0 }, { text: "A mix of both", score: 1 }, { text: "A pure lifeline for someone in crisis", score: 2 }] },
+          { id: 7, gapId: 2, q: "What pronoun is used most heavily on your homepage?", options: [{ text: "'We / Our / The Firm'", score: 0 }, { text: "An equal mix", score: 1 }, { text: "'You / Your'", score: 2 }] },
+          { id: 8, gapId: 2, q: "Does your website specifically name the emotional fears of your clients?", options: [{ text: "No, it just lists legal services", score: 0 }, { text: "A little bit", score: 1 }, { text: "Yes, directly and empathetically", score: 2 }] },
+          // Gap 3: Trust
+          { id: 9, gapId: 3, q: "How many Google reviews do you have compared to your closest competitor?", options: [{ text: "Significantly fewer", score: 0 }, { text: "About the same", score: 1 }, { text: "Significantly more", score: 2 }] },
+          { id: 10, gapId: 3, q: "What do your typical reviews actually say?", options: [{ text: "'Great lawyer' or 'Very professional'", score: 0 }, { text: "A brief mention of their case outcome", score: 1 }, { text: "Detailed, emotional stories of survival and help", score: 2 }] },
+          { id: 11, gapId: 3, q: "Do you display client stories or testimonials natively on your website?", options: [{ text: "No", score: 0 }, { text: "Yes, but buried on a sub-page", score: 1 }, { text: "Yes, front and center", score: 2 }] },
+          { id: 12, gapId: 3, q: "If someone reads your reviews, do they feel a connection to past clients?", options: [{ text: "No, they just see a star rating", score: 0 }, { text: "Maybe", score: 1 }, { text: "Yes, they see themselves in those reviews", score: 2 }] },
+          // Gap 4: Connection
+          { id: 13, gapId: 4, q: "How often do prospects feel like they 'already know you' before the consult?", options: [{ text: "Never / Rarely", score: 0 }, { text: "Sometimes", score: 1 }, { text: "Frequently", score: 2 }] },
+          { id: 14, gapId: 4, q: "Do you use video on your website to explain your process and show empathy?", options: [{ text: "No video at all", score: 0 }, { text: "One generic firm overview video", score: 1 }, { text: "Yes, multiple targeted videos", score: 2 }] },
+          { id: 15, gapId: 4, q: "Does your consultation feel like an audition or a confirmation?", options: [{ text: "A hard audition (I have to sell myself)", score: 0 }, { text: "A mix", score: 1 }, { text: "A confirmation (They already want to hire me)", score: 2 }] },
+          { id: 16, gapId: 4, q: "Can a prospect spend 5 minutes 'experiencing' your personality online without calling?", options: [{ text: "No, they just read text", score: 0 }, { text: "Maybe through a blog post", score: 1 }, { text: "Yes, through video or rich media", score: 2 }] },
+          // Gap 5: Conversion
+          { id: 17, gapId: 5, q: "What is the primary call to action on your site?", options: [{ text: "'Call now for a consultation' only", score: 0 }, { text: "A basic contact form", score: 1 }, { text: "Multiple frictionless paths (Booking link, guide, assessment)", score: 2 }] },
+          { id: 18, gapId: 5, q: "If a prospect visits your site at 11 PM but isn't ready to talk, what happens?", options: [{ text: "They leave", score: 0 }, { text: "They might fill out a generic form", score: 1 }, { text: "They can engage with a low-friction resource", score: 2 }] },
+          { id: 19, gapId: 5, q: "How easy is it to schedule a consultation with you?", options: [{ text: "They have to call during business hours", score: 0 }, { text: "They fill out a form and wait for us to call back", score: 1 }, { text: "They can directly book a time on my calendar 24/7", score: 2 }] },
+          { id: 20, gapId: 5, q: "Do you know what percentage of your website visitors actually turn into leads?", options: [{ text: "No clue", score: 0 }, { text: "I have a rough estimate", score: 1 }, { text: "Yes, it is tracked accurately", score: 2 }] }
         ];
 
         function App() {
@@ -370,79 +372,79 @@
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   
                   {/* Gap 2 */}
-                  <div className="bg-indigo-50 border-2 border-indigo-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-indigo-200 text-indigo-800 text-xs font-black px-3 py-1 rounded-bl-xl">GAP 2</div>
-                    <h4 className="font-bold text-indigo-900 flex items-center gap-2 mb-2 mt-2 text-lg">
-                      <Layout size={20} /> Positioning
-                    </h4>
-                    <p className="text-sm font-medium text-indigo-700 italic mb-3">Your site has your colors, your photos.</p>
-                    <p className="text-sm text-slate-700 leading-relaxed">But if a competitor swapped their logo onto it, does it still play? Positioning isn't design. It's deciding who you're for and building everything around that.</p>
-                  </div>
-
-                  {/* Gap 3 */}
                   <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-purple-200 text-purple-800 text-xs font-black px-3 py-1 rounded-bl-xl">GAP 3</div>
+                    <div className="absolute top-0 right-0 bg-purple-200 text-purple-800 text-xs font-black px-3 py-1 rounded-bl-xl">GAP 2</div>
                     <h4 className="font-bold text-purple-900 flex items-center gap-2 mb-2 mt-2 text-lg">
                       <MessageSquare size={20} /> Message
                     </h4>
-                    <p className="text-sm font-medium text-purple-700 italic mb-3">Your site explains the process.</p>
-                    <p className="text-sm text-slate-700 leading-relaxed">But is there anything on it that makes someone feel like you understand what they're going through, not just the legal side of it?</p>
+                    <p className="text-sm font-medium text-purple-700 italic mb-3">If another firm could swap their logo onto your website and nothing would feel off, you haven’t claimed your territory.</p>
+                    <p className="text-sm text-slate-700 leading-relaxed">You’ve described what you do. But have you spoken to what they’re actually feeling?</p>
                   </div>
 
-                  {/* Gap 4 */}
+                  {/* Gap 3 */}
                   <div className="bg-pink-50 border-2 border-pink-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-pink-200 text-pink-800 text-xs font-black px-3 py-1 rounded-bl-xl">GAP 4</div>
+                    <div className="absolute top-0 right-0 bg-pink-200 text-pink-800 text-xs font-black px-3 py-1 rounded-bl-xl">GAP 3</div>
                     <h4 className="font-bold text-pink-900 flex items-center gap-2 mb-2 mt-2 text-lg">
                       <Star size={20} /> Trust
                     </h4>
-                    <p className="text-sm font-medium text-pink-700 italic mb-3">Your badges confirm you're qualified.</p>
-                    <p className="text-sm text-slate-700 leading-relaxed">Your reviews are what actually help someone choose you. And only one of those helps you rank on Google.</p>
+                    <p className="text-sm font-medium text-pink-700 italic mb-3">Are you externally validated?</p>
+                    <p className="text-sm text-slate-700 leading-relaxed">What strangers say about you to other strangers matters more than what you say about yourself.</p>
+                  </div>
+
+                  {/* Gap 4 */}
+                  <div className="bg-rose-50 border-2 border-rose-200 rounded-2xl p-6 shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-rose-200 text-rose-800 text-xs font-black px-3 py-1 rounded-bl-xl">GAP 4</div>
+                    <h4 className="font-bold text-rose-900 flex items-center gap-2 mb-2 mt-2 text-lg">
+                      <Users size={20} /> Connection
+                    </h4>
+                    <p className="text-sm font-medium text-rose-700 italic mb-3">Can they experience you before they commit to a call?</p>
+                    <p className="text-sm text-slate-700 leading-relaxed">Divorce is not transactional. Your prospects need to hear your voice, see how you think, and feel something before they dial.</p>
                   </div>
 
                 </div>
               </div>
 
 
-              {/* --- PHASE 3: THE CLOSER --- */}
+              {/* --- PHASE 3: THE CONVERSION --- */}
               <div className="flex flex-col items-center justify-center w-full pt-4">
                 <div className="w-[2px] bg-slate-300 h-10"></div>
                 <div className="text-slate-400 -mt-1 z-10"><ArrowDown size={20} /></div>
 
-                <div className="bg-rose-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-rose-800 w-full max-w-4xl mt-10">
+                <div className="bg-amber-900 rounded-3xl p-6 md:p-8 text-white shadow-lg relative border border-amber-800 w-full max-w-4xl mt-10">
                   <div className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none z-0">
                     <div className="absolute right-0 top-0 opacity-10 transform translate-x-4 -translate-y-4">
-                      <Users size={120} />
+                      <Target size={120} />
                     </div>
                   </div>
                   
-                  <div className="absolute top-0 right-0 bg-rose-500 text-white text-xs font-black px-4 py-1.5 rounded-bl-2xl rounded-tr-2xl z-20 shadow-sm border-b border-l border-rose-400">
+                  <div className="absolute top-0 right-0 bg-amber-500 text-white text-xs font-black px-4 py-1.5 rounded-bl-2xl rounded-tr-2xl z-20 shadow-sm border-b border-l border-amber-400">
                     GAP 5
                   </div>
                   
-                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-rose-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
-                    Phase 3: The Closer
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-white text-xs font-bold px-5 py-1.5 rounded-full uppercase tracking-wider shadow-md z-20 whitespace-nowrap">
+                    Phase 3: The Conversion
                   </div>
                   
                   <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8 pt-2">
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-3 mb-2">
                         <h3 className="text-2xl font-bold flex items-center gap-2">
-                          <Users size={28} className="text-rose-400" />
-                          Familiarity (Video)
+                          <Target size={28} className="text-amber-400" />
+                          Conversion
                         </h3>
-                        <span className="flex items-center gap-1.5 bg-pink-500/20 text-pink-200 text-xs font-bold px-2.5 py-1 rounded-md border border-pink-500/30">
-                          <Star size={14} className="text-pink-400" /> The Ultimate Trust Signal
+                        <span className="flex items-center gap-1.5 bg-amber-500/20 text-amber-200 text-xs font-bold px-2.5 py-1 rounded-md border border-amber-500/30">
+                          <MousePointerClick size={14} className="text-amber-400" /> The Final Step
                         </span>
                       </div>
-                      <p className="text-sm font-medium text-rose-300 italic mb-3">The consultation shouldn't be the first time a prospect hears your voice or sees your face.</p>
-                      <p className="text-rose-100/90 leading-relaxed text-sm md:text-base">
-                        They evaluated you and stuck around. Now, do they have to read text to guess what you're like, or can they <strong>experience working with you</strong> right now? Engaging video doesn't just build familiarity—it builds a parasocial relationship that supersedes the need for external reviews.
+                      <p className="text-sm font-medium text-amber-300 italic mb-3">Visiting your site shouldn’t be the end of the journey. It should be the beginning of a conversation.</p>
+                      <p className="text-amber-100/90 leading-relaxed text-sm md:text-base">
+                        You’ve earned their attention, connected with their pain, and proven your trust. But does your site give them a reason to act right now? Without a low-friction way to take the next step, they bounce.
                       </p>
                     </div>
-                    <div className="w-full md:w-auto bg-rose-950/50 p-5 rounded-2xl border border-rose-800/50 text-center flex flex-col justify-center min-w-[200px]">
-                      <span className="block text-rose-300 text-sm font-bold mb-3">When video closes this gap:</span>
+                    <div className="w-full md:w-auto bg-amber-950/50 p-5 rounded-2xl border border-amber-800/50 text-center flex flex-col justify-center min-w-[200px]">
+                      <span className="block text-amber-300 text-sm font-bold mb-3">When you close this gap:</span>
                       <div className="bg-green-500 text-white font-bold py-2.5 px-5 rounded-xl flex items-center justify-center gap-2 shadow-sm">
-                        They call ready to hire <ArrowRight size={16} />
+                        Traffic turns into leads <ArrowRight size={16} />
                       </div>
                     </div>
                   </div>
